@@ -1,0 +1,1 @@
+start  ..\openresty\nginx -p .
