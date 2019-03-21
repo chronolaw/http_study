@@ -1,4 +1,4 @@
-#!python
+#!/usr/bin/python
 
 # Copyright (C) 2019 by chrono
 
