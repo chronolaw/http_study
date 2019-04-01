@@ -42,3 +42,4 @@ luac.out
 # nginx
 *.log
 *.pid
+*.swp
