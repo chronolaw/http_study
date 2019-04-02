@@ -4,6 +4,12 @@ local str = "10-1 GET&HEAD test\n"
 
 local method = ngx.req.get_method()
 
+if method ~= "GET" and
+   method ~= "HEAD" then
+
+   return 405
+end
+
 ngx.header.content_length = #str
 
 --if method == "HEAD" then
