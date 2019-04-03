@@ -2,11 +2,15 @@
 
 local code = ngx.var.arg_code
 
-local str = "Your expect code is " ..
-            (code or "nil") .. '\n'
+--local str = "Your expect code is " ..
+--            (code or "nil") .. '\n'
 
-ngx.header.content_length = #str
+--ngx.header.content_length = #str
 
-ngx.status = tonumber(code) or 400
+ngx.header['Expect-Code'] = code or "nil"
 
-ngx.print(str)
+--ngx.status = tonumber(code) or 400
+
+--ngx.print(str)
+
+ngx.exit(tonumber(code) or 400)
