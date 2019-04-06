@@ -15,6 +15,7 @@ strs[#strs + 1] = "query  => " .. (ngx.var.args or "")
 
 local str = table.concat(strs, '\n')
 
-ngx.header.content_length = #str
+ngx.header['Content-Length'] = #str
+ngx.header['Content-Type'] = 'text/plain'
 
 ngx.print(str)
