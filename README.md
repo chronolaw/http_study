@@ -2,11 +2,15 @@
 Follow me to study http.
 
 ## Requirements
-Windows 7 or 10
+Windows 7 or 10.
+But you can also run it on Linux or macOS.
 
 ## Links
-* [RFC7230](https://tools.ietf.org/html/rfc7230) - HTTP/1.1
 * [RFC3986](https://tools.ietf.org/html/rfc3986) - URI
+* [RFC7230](https://tools.ietf.org/html/rfc7230) - HTTP/1.1
+* [RFC2818](https://tools.ietf.org/html/rfc2818) - HTTPS
+* [RFC7540](https://tools.ietf.org/html/rfc7540) - HTTP/2
+* [RFC6455](https://tools.ietf.org/html/rfc6455) - WebSocket
 
 ## See Also
 * [annotated_nginx](https://github.com/chronolaw/annotated_nginx) - 注释nginx，学习研究源码
