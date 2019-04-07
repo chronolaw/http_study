@@ -1,8 +1,9 @@
 # http_study
-Follow me to study http.
+Follow me to study HTTP.
 
 ## Requirements
 Windows 7 or 10.
+
 But you can also run it on Linux or macOS.
 
 ## Links
