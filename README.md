@@ -7,6 +7,7 @@ Windows 7 or 10.
 But you can also run it on Linux or macOS.
 
 ## Links
+* [RFC2231](https://tools.ietf.org/html/rfc2231) - MIME
 * [RFC2818](https://tools.ietf.org/html/rfc2818) - HTTPS
 * [RFC3986](https://tools.ietf.org/html/rfc3986) - URI
 * [RFC5246](https://tools.ietf.org/html/rfc5246) - TLS 1.2
