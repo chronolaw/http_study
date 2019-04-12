@@ -8,11 +8,15 @@ But you can also run it on Linux or macOS.
 
 ## Links
 * [RFC2231](https://tools.ietf.org/html/rfc2231) - MIME
+* [RFC2324](https://tools.ietf.org/html/rfc2324) - HTCPCP
+* [RFC2616](https://tools.ietf.org/html/rfc2616) - HTTP/1.1(old)
 * [RFC2818](https://tools.ietf.org/html/rfc2818) - HTTPS
 * [RFC3986](https://tools.ietf.org/html/rfc3986) - URI
 * [RFC5246](https://tools.ietf.org/html/rfc5246) - TLS 1.2
+* [RFC6265](https://tools.ietf.org/html/rfc6265) - Cookie
 * [RFC6455](https://tools.ietf.org/html/rfc6455) - WebSocket
-* [RFC7230](https://tools.ietf.org/html/rfc7230) - HTTP/1.1
+* [RFC7168](https://tools.ietf.org/html/rfc7168) - HTCPCP-TEA
+* [RFC7230](https://tools.ietf.org/html/rfc7230) - HTTP/1.1(new)
 * [RFC7540](https://tools.ietf.org/html/rfc7540) - HTTP/2
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
 
