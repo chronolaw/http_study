@@ -1,0 +1,6 @@
+// this is a plain text json doc
+{
+    "a":100,
+    "b":[1,2,3,4],
+    "c":"hello http"
+}
