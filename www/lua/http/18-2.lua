@@ -15,6 +15,8 @@ local str = "HTTP Conditional Request \n" ..
 ngx.header['Content-Length'] = #str
 ngx.header['Content-Type'] = 'text/plain'
 
+ngx.header['Cache-Control'] = 'public, max-age=10'
+
 ngx.header['Last-Modified'] = ngx.http_time(time)
 
 -- see ngx_http_set_etag() in ngx_http_core_module.c
