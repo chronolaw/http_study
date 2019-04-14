@@ -16,5 +16,5 @@ local new_uri = target
 
 ngx.header['Referer'] = ngx.var.request_uri
 
-ngx.redirect(new_uri, code)
+return ngx.redirect(new_uri, code)
 
