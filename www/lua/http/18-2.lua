@@ -13,7 +13,7 @@ local str = "HTTP Conditional Request \n" ..
             "Now is " .. ngx.http_time(time)
 
 ngx.header['Content-Length'] = #str
-ngx.header['Content-Type'] = 'text/plain'
+--ngx.header['Content-Type'] = 'text/plain'
 
 ngx.header['Cache-Control'] = 'public, max-age=10'
 

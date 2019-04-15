@@ -2,7 +2,7 @@
 
 local cookie = ngx.var.http_cookie
 
-ngx.header['Content-Type'] = 'text/plain'
+--ngx.header['Content-Type'] = 'text/plain'
 
 if cookie then
     ngx.say("your cookie is [", cookie, "]\n")

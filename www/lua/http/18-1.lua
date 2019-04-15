@@ -6,7 +6,7 @@ local str = "HTTP Cache Control\n" ..
 
 
 ngx.header['Content-Length'] = #str
-ngx.header['Content-Type'] = 'text/plain'
+--ngx.header['Content-Type'] = 'text/plain'
 
 ngx.header['Cache-Control'] = 'public, max-age=10'
 

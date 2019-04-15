@@ -25,7 +25,7 @@ str[#str + 1] = "\nraw header is :\n"
 
 str = table.concat(str, '\n')
 
-ngx.header['Content-Type'] = 'text/plain'
+--ngx.header['Content-Type'] = 'text/plain'
 ngx.header['Content-Length'] = #str + # raw_headers
 
 ngx.print(str)

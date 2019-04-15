@@ -18,7 +18,7 @@ local str = "keep alive data ".. counter .." \n"
 --end
 
 ngx.header['Content-Length'] = #str
-ngx.header['Content-Type'] = 'text/plain'
+--ngx.header['Content-Type'] = 'text/plain'
 
 ngx.print(str)
 
