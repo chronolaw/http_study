@@ -2,11 +2,12 @@
 
 local misc = ngx.shared.misc
 
-local time = tonumber(misc:get("time"))
+local key = ngx.var.http_host .. "time"
+local time = tonumber(misc:get(key))
 
 if not time then
     time = ngx.time()
-    misc:set("time", time, 10)   -- seconds
+    misc:set(key, time, 10)   -- seconds
 end
 
 local str = "HTTP Conditional Request \n" ..
