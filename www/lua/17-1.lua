@@ -8,7 +8,8 @@ if code ~= 301 and code ~= 302 then
     code = 302
 end
 
-local new_uri = ngx.escape_uri(dst)
+local new_uri = ngx.unescape_uri(dst)
+--ngx.log(ngx.ERR, "new_uri = ", new_uri)
 
 -- HTTP header Injection
 if string.find(new_uri, '\r') then
