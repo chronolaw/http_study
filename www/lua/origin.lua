@@ -11,8 +11,16 @@ if not time then
 end
 
 local str = "HTTP Original Server\n" ..
-            "Now is " .. ngx.http_time(time)
+            "Now is " .. ngx.http_time(time) ..
+            "\n\n"
 
+local fields = {'X-Real-IP', 'X-Forwarded-Host',
+                'X-Forwarded-Proto', 'X-Forwarded-For'}
+
+local headers = ngx.req.get_headers()
+for _,v in ipairs(fields) do
+    str = str .. v .. " => " .. headers[v] .. "\n"
+end
 
 ngx.header['Content-Length'] = #str
 --ngx.header['Content-Type'] = 'text/plain'
