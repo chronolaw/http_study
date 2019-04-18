@@ -7,7 +7,7 @@ local time = tonumber(misc:get(key))
 
 if not time then
     time = ngx.time()
-    misc:set(key, time, 10)   -- seconds
+    misc:set(key, time, 30)   -- seconds
 end
 
 local str = "HTTP Conditional Request \n" ..

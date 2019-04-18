@@ -8,7 +8,7 @@ local str = "HTTP Cache Control\n" ..
 ngx.header['Content-Length'] = #str
 --ngx.header['Content-Type'] = 'text/plain'
 
-ngx.header['Cache-Control'] = 'public, max-age=10'
+ngx.header['Cache-Control'] = 'max-age=30'  --', no-cache'
 
 if ngx.var.arg_need_expires == '1' then
     ngx.header['Expires'] = ngx.http_time(now + 10)
