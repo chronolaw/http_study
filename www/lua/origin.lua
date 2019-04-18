@@ -23,6 +23,7 @@ for _,v in ipairs(fields) do
 end
 
 ngx.header['Content-Length'] = #str
+ngx.header['X-Powered-By'] = 'ngx_lua' .. ngx.config.ngx_lua_version
 --ngx.header['Content-Type'] = 'text/plain'
 
 ngx.header['Cache-Control'] = 'public, max-age=10'
