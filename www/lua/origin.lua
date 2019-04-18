@@ -26,6 +26,10 @@ ngx.header['Content-Length'] = #str
 ngx.header['X-Powered-By'] = 'ngx_lua' .. ngx.config.ngx_lua_version
 --ngx.header['Content-Type'] = 'text/plain'
 
+ngx.header['Origin'] = ngx.var.scheme .. "://" ..
+                       ngx.var.host .. ":" ..
+                       ngx.var.server_port
+
 ngx.header['Cache-Control'] = 'public, max-age=10'
 ngx.header['Expires'] = ngx.http_time(time + 10)
 
