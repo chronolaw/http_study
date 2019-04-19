@@ -40,6 +40,7 @@ end
 local range_num = end_pos - start_pos + 1
 --local fake_content_length = range_num + 500
 
+ngx.status = 416
 str = "range too huge for test\n"
 
 if range_num > 1000 then
