@@ -2,6 +2,6 @@
 
 -- test for infinite loop redirection
 
---return ngx.redirect("/17-2", 302)
-return ngx.redirect("/17-1?dst=17-2", 302)
+--return ngx.redirect("/18-2", 302)
+return ngx.redirect("/18-1?dst=18-2", 302)
 
