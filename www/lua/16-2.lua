@@ -1,8 +1,17 @@
 -- Copyright (C) 2019 by chrono
 
--- range
+-- range by ngx_http_range_filter_module
 
-local str
+local path = "/mime/a.txt"
+
+-- Accept-Ranges: bytes
+ngx.header['Accept-Ranges'] = 'bytes'
+
+return ngx.exec(path)
+
+-- simple imeplent for range parse
+
+--[==[
 local range = ngx.var.http_range
 
 ngx.status = 400
@@ -61,3 +70,4 @@ str = 'data:' .. string.rep('x', range_num - 5)
 ngx.header['Content-Length'] = #str
 
 ngx.print(str)
+--]==]
