@@ -1,18 +1,26 @@
 -- Copyright (C) 2019 by chrono
 
-local now = ngx.time()
-local str = "HTTP Cache Control\n" ..
-            "Now is " .. ngx.http_time(now)
+local dst = ngx.var.arg_dst or '/index.html'
 
+local code = tonumber(ngx.var.arg_code or 302)
 
-ngx.header['Content-Length'] = #str
---ngx.header['Content-Type'] = 'text/plain'
-
-ngx.header['Cache-Control'] = 'max-age=30'  --', no-cache'
-
-if ngx.var.arg_need_expires == '1' then
-    ngx.header['Expires'] = ngx.http_time(now + 10)
+if code ~= 301 and code ~= 302 then
+    code = 302
 end
 
-ngx.print(str)
+local new_uri = ngx.unescape_uri(dst)
+--ngx.log(ngx.ERR, "new_uri = ", new_uri)
+
+-- HTTP header Injection
+if string.find(new_uri, '\r') then
+    ngx.exit(400)
+end
+
+--if string.byte(new_uri) ~= string.byte('/') then
+--    new_uri = '/' .. new_uri
+--end
+
+ngx.header['Referer'] = ngx.var.request_uri
+
+return ngx.redirect(new_uri, code)
 

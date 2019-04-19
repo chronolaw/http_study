@@ -1,22 +1,18 @@
 -- Copyright (C) 2019 by chrono
 
-local cookie = ngx.var.http_cookie
+local now = ngx.time()
+local str = "HTTP Cache Control\n" ..
+            "Now is " .. ngx.http_time(now)
 
+
+ngx.header['Content-Length'] = #str
 --ngx.header['Content-Type'] = 'text/plain'
 
-if cookie then
-    ngx.say("your cookie is [", cookie, "]\n")
-    return
+ngx.header['Cache-Control'] = 'max-age=30'  --', no-cache'
+
+if ngx.var.arg_need_expires == '1' then
+    ngx.header['Expires'] = ngx.http_time(now + 10)
 end
 
-ngx.header['Set-Cookie'] = 'uid=2019-9999; ' ..
-                           'path=/; ' ..
-                           'expires=' ..
-                             ngx.cookie_time(ngx.time() + 10) ..
-                             ';' ..
-                           'domain=*.chrono.com; ' ..
-                           'HttpOnly'
-
-ngx.say("your have no cookie, please visit again. ")
-
+ngx.print(str)
 
