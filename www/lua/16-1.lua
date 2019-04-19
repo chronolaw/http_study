@@ -1,5 +1,7 @@
 -- Copyright (C) 2019 by chrono
 
+-- chunked
+
 --ngx.header['Content-Type'] = 'text/plain'
 --ngx.header['Transfer-Encoding'] = 'chunked'
 
