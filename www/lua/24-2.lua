@@ -1,4 +1,5 @@
 -- Copyright (C) 2019 by chrono
+-- sign and verify
 
 local resty_rsa = require "resty.rsa"
 local resty_str = require "resty.string"
@@ -44,6 +45,9 @@ fjEPSZ99M/Z5GBFAi8/fvQJBAIMGwpXeDRi2GPhxdql1YEh8fanCq0Rz4teee6+m
 emH+NTGnX6plyikqghnE8RAoR9TMsXR9Eg/KWvblxXS8/V4=
 -----END RSA PRIVATE KEY-----
 ]]
+
+ngx.say(rsa_public_key)
+ngx.say(rsa_priv_key)
 
 local plain = ngx.var.arg_text or '1234'
 

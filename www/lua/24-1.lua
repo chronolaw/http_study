@@ -1,4 +1,5 @@
 -- Copyright (C) 2019 by chrono
+-- digest algorithm
 
 local resty_rsa = require "resty.rsa"
 local resty_str = require "resty.string"

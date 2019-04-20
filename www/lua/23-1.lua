@@ -1,4 +1,5 @@
 -- Copyright (C) 2019 by chrono
+-- aes encrypt and decrypt
 
 local resty_aes = require "resty.aes"
 local resty_str = require "resty.string"

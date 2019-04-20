@@ -1,4 +1,5 @@
 -- Copyright (C) 2019 by chrono
+-- rsa1024 encrypt and decrypt
 
 local resty_rsa = require "resty.rsa"
 local resty_str = require "resty.string"
@@ -47,7 +48,6 @@ emH+NTGnX6plyikqghnE8RAoR9TMsXR9Eg/KWvblxXS8/V4=
 ]]
 
 ngx.say(rsa_public_key)
-
 ngx.say(rsa_priv_key)
 
 local pub, err = resty_rsa:new({ public_key = rsa_public_key })
