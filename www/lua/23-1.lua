@@ -3,6 +3,12 @@
 local resty_aes = require "resty.aes"
 local resty_str = require "resty.string"
 
+local scheme = ngx.var.scheme
+if scheme ~= 'https' then
+    return ngx.redirect(
+        'https://'..ngx.var.host..ngx.var.request_uri, 301)
+end
+
 local key = ngx.var.arg_key
 local salt = ngx.var.arg_salt
 

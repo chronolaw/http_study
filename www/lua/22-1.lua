@@ -28,6 +28,13 @@ const char *SSL_get_cipher_list(const SSL *s, int n);
 char *SSL_get_shared_ciphers(const SSL *s, char *buf, int len);
 ]]
 
+local scheme = ngx.var.scheme
+if scheme ~= 'https' then
+    --ngx.log(ngx.ERR, scheme)
+    return ngx.redirect(
+        'https://'..ngx.var.host..ngx.var.request_uri, 301)
+end
+
 local openssl_ver = ffi_str(C.OpenSSL_version(0))
 
 ngx.log(ngx.INFO, "hello openssl")
@@ -37,6 +44,7 @@ ngx.say('hello ', openssl_ver)
 --ngx.say('\nver: ', ssl.get_tls1_version_str())
 
 ngx.say('\nprotocol: ', ngx.var.ssl_protocol)
+ngx.say('\nsni name: ', ngx.var.ssl_server_name)
 
 ngx.say('\nclient suites: ', ngx.var.ssl_ciphers)
 
