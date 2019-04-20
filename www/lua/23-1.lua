@@ -14,7 +14,8 @@ local key = ngx.var.arg_key
 local salt = ngx.var.arg_salt
 
 if not key then
-    ngx.say('yout must submit a key for cipher')
+    ngx.say('yout must submit a key for cipher: '..
+            '?key=xxx&salt=xxx')
     return ngx.exit(400)
 end
 
