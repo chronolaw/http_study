@@ -1,7 +1,12 @@
 -- Copyright (C) 2019 by chrono
 
 local headers = ngx.req.get_headers()
-local raw_headers = ngx.req.raw_header()
+
+local raw_headers = 'N/A for HTTP/2'
+--ngx.log(ngx.ERR, 'http2=[',ngx.var.http2,']')
+if #ngx.var.http2 == 0 then
+    raw_headers = ngx.req.raw_header()
+end
 
 local str = {}
 
@@ -26,7 +31,7 @@ str[#str + 1] = "\nraw header is :\n"
 str = table.concat(str, '\n')
 
 --ngx.header['Content-Type'] = 'text/plain'
-ngx.header['Content-Length'] = #str + # raw_headers
+ngx.header['Content-Length'] = #str + #raw_headers
 
 ngx.print(str)
 ngx.print(raw_headers)
