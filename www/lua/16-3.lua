@@ -26,7 +26,9 @@ ext json d
 ngx.header['Accept-Ranges'] = 'bytes'
 ngx.header['Content-Type'] = 'multipart/byteranges; boundary=xyz'
 
+-- simulate chuned multipart
 local strs = {
+-- 1st part
 [[
 --xyz
 Content-Type: text/plain
@@ -35,6 +37,7 @@ Content-Range: bytes 0-9/90
 // this is
 ]],
 
+-- 2nd part
 [[
 --xyz
 Content-Type: text/plain
@@ -43,10 +46,11 @@ Content-Range: bytes 20-29/90
 ext json d
 ]],
 
+-- last part
 [[
 --xyz--
 ]]
-    }
+}
 
 -- flush for chunked
 for _,v in ipairs(strs) do
