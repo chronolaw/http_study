@@ -14,7 +14,8 @@ ngx.header['Set-Cookie'] = 'uid=2019-9999; ' ..
                            'expires=' ..
                              ngx.cookie_time(ngx.time() + 10) ..
                              ';' ..
-                           'domain=*.chrono.com; ' ..
+                           'domain=' ..
+                             ngx.var.host .. '; ' ..
                            'HttpOnly'
 
 ngx.say("your have no cookie, please visit again. ")
