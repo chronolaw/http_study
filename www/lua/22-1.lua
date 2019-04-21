@@ -1,4 +1,5 @@
 -- Copyright (C) 2019 by chrono
+-- ssl/tls cipher suites
 
 --local ssl = require "ngx.ssl"
 
