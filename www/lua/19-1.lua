@@ -9,29 +9,13 @@ if cookie then
     return
 end
 
-local max_age = 10
-
+-- session cookie
 local fields = {
-    'uid=2019-9999',
-    'Max-age=' .. max_age,
-    'expires=' ..  ngx.cookie_time(ngx.time() + max_age),
-    'domain=' ..  ngx.var.host,
-    'path=/',
-    'HttpOnly'
-    }
+    'sid=' .. ngx.time(),
+    'Max-age=5'
+}
 
 ngx.header['Set-Cookie'] = table.concat(fields, '; ')
-
---[[
-ngx.header['Set-Cookie'] = 'uid=2019-9999; ' ..
-                           'expires=' ..
-                             ngx.cookie_time(ngx.time() + 10) ..
-                             ';' ..
-                           'domain=' ..
-                             ngx.var.host .. '; ' ..
-                           'path=/; ' ..
-                           'HttpOnly'
---]]
 
 ngx.say("your have no cookie, please visit again. ")
 
