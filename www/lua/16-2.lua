@@ -5,7 +5,9 @@
 local path = "/mime/a.txt"
 
 -- Accept-Ranges: bytes
-ngx.header['Accept-Ranges'] = 'bytes'
+if ngx.var.http_range then
+    ngx.header['Accept-Ranges'] = 'bytes'
+end
 
 return ngx.exec(path)
 
