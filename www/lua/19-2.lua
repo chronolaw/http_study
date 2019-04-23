@@ -1,7 +1,5 @@
 -- Copyright (C) 2019 by chrono
 
-local ngx_resp = require 'ngx.resp'
-
 local cookie = ngx.var.http_cookie
 
 --ngx.header['Content-Type'] = 'text/plain'
@@ -11,13 +9,31 @@ if cookie then
     return
 end
 
--- session cookie
+local max_age = 10
+
 local fields = {
+    --'uid=2019-9999',
     'favorite=hamburger',
-    'Max-Age=5'
-}
+    'Max-Age=' .. max_age,
+    'Expires=' ..  ngx.cookie_time(ngx.time() + max_age),
+    'Domain=' ..  ngx.var.host,
+    'Path=/',
+    'HttpOnly',
+    'SameSite=Strict',
+    }
 
 ngx.header['Set-Cookie'] = table.concat(fields, '; ')
 
-ngx.say("your have no cookie, please visit again.")
+--[[
+ngx.header['Set-Cookie'] = 'uid=2019-9999; ' ..
+                           'expires=' ..
+                             ngx.cookie_time(ngx.time() + 10) ..
+                             ';' ..
+                           'domain=' ..
+                             ngx.var.host .. '; ' ..
+                           'path=/; ' ..
+                           'HttpOnly'
+--]]
+
+ngx.say("your have no cookie, please visit again. ")
 
