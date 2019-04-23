@@ -4,7 +4,7 @@ local cookie = ngx.var.http_cookie
 
 --ngx.header['Content-Type'] = 'text/plain'
 
-if cookie then
+if cookie and string.find(cookie, 'favorite') then
     ngx.say("your cookie is [", cookie, "]\n")
     return
 end
