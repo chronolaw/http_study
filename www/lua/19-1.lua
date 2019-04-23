@@ -19,8 +19,10 @@ end
 
 --ngx.header['Set-Cookie'] = table.concat(fields, '; ')
 
-ngx_resp.add_header('Set-Cookie', 'sessionid=s' .. ngx.time())
-ngx_resp.add_header('Set-Cookie', 'logintime=' .. ngx.http_time(ngx.time()))
+local time = tostring(ngx.time())
+
+ngx_resp.add_header('Set-Cookie', 'sid=' .. string.sub(time, -4, -1))
+ngx_resp.add_header('Set-Cookie', 'system=' .. jit.os ..'_'..jit.arch)
 
 ngx.say("your have no cookie, please visit again.")
 
