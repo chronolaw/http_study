@@ -12,7 +12,7 @@ end
 -- session cookie
 local fields = {
     'sessionid=' .. ngx.time(),
---    'Max-age=5'
+--    'Max-Age=5'
 }
 
 ngx.header['Set-Cookie'] = table.concat(fields, '; ')

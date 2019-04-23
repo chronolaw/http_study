@@ -13,10 +13,10 @@ local max_age = 10
 
 local fields = {
     'uid=2019-9999',
-    'Max-age=' .. max_age,
-    'expires=' ..  ngx.cookie_time(ngx.time() + max_age),
-    'domain=' ..  ngx.var.host,
-    'path=/',
+    'Max-Age=' .. max_age,
+    'Expires=' ..  ngx.cookie_time(ngx.time() + max_age),
+    'Domain=' ..  ngx.var.host,
+    'Path=/',
     'HttpOnly'
     }
 
