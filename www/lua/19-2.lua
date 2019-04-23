@@ -15,7 +15,7 @@ local fields = {
     --'uid=2019-9999',
     'favorite=hamburger',
     'Max-Age=' .. max_age,
-    'Expires=' ..  ngx.cookie_time(ngx.time() + max_age),
+    'Expires=' ..  ngx.cookie_time(ngx.time() + max_age),   -- 3600*12*90
     'Domain=' ..  ngx.var.host,
     'Path=/',
     'HttpOnly',
