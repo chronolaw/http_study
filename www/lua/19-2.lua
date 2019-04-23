@@ -18,6 +18,7 @@ local fields = {
     'Domain=' ..  ngx.var.host,
     'Path=/',
     'HttpOnly'
+    'SameSite=Strict',
     }
 
 ngx.header['Set-Cookie'] = table.concat(fields, '; ')
