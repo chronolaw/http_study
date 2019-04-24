@@ -20,6 +20,7 @@ But you can also run it on Linux or macOS.
 * [RFC5246](https://tools.ietf.org/html/rfc5246) - TLS 1.2
 * [RFC6265](https://tools.ietf.org/html/rfc6265) - Cookie
 * [RFC6455](https://tools.ietf.org/html/rfc6455) - WebSocket
+* [RFC6648](https://tools.ietf.org/html/rfc6648) - Deprecating the "X-" Prefix
 * [RFC6838](https://tools.ietf.org/html/rfc6838) - MIME(new)
 * [RFC7168](https://tools.ietf.org/html/rfc7168) - HTCPCP-TEA
 * [RFC7230](https://tools.ietf.org/html/rfc7230) - HTTP/1.1(new)
