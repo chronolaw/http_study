@@ -1,12 +1,17 @@
 # http_study
+
 Follow me to study HTTP.
 
+Pull requests of Python/JavaScript example code are welcome!
+
 ## Requirements
+
 Windows 7 or 10.
 
 But you can also run it on Linux or macOS.
 
 ## Links
+
 * [RFC2045](https://tools.ietf.org/html/rfc2045) - MIME(old)
 * [RFC2324](https://tools.ietf.org/html/rfc2324) - HTCPCP
 * [RFC2616](https://tools.ietf.org/html/rfc2616) - HTTP/1.1(old)
@@ -22,6 +27,7 @@ But you can also run it on Linux or macOS.
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
 
 ## See Also
+
 * [annotated_nginx](https://github.com/chronolaw/annotated_nginx) - 注释nginx，学习研究源码
 * [ngx_ansic_dev](https://github.com/chronolaw/ngx_ansic_dev) - Nginc ANSI C Development
 * [openresty_dev](https://github.com/chronolaw/openresty_dev) - OpenResty/Lua Programming
