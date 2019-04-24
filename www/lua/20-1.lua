@@ -1,14 +1,18 @@
 -- Copyright (C) 2019 by chrono
 
+local time = 30
+
 local now = ngx.time()
+
 local str = "HTTP Cache Control\n" ..
-            "Now is " .. ngx.http_time(now)
+            "Now is " .. ngx.http_time(now) .. '\n' ..
+            "This message will be cached for " .. time .. 's\n'
 
 
 ngx.header['Content-Length'] = #str
 --ngx.header['Content-Type'] = 'text/plain'
 
-ngx.header['Cache-Control'] = 'max-age=30'  --', no-cache'
+ngx.header['Cache-Control'] = 'max-age='..time  --', no-cache'
 
 if ngx.var.arg_need_expires == '1' then
     ngx.header['Expires'] = ngx.http_time(now + 10)
