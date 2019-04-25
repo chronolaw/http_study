@@ -5,7 +5,7 @@ local time = 30
 local now = ngx.time()
 
 local str = "HTTP Cache Control\n" ..
-            "Now is " .. ngx.http_time(now) .. '\n' ..
+            "ID is " .. string.sub(tostring(now), -4, -1) .. '\n' ..
             "This message will be cached for " .. time .. 's\n'
 
 
