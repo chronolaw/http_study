@@ -10,7 +10,7 @@ Windows 7 or 10.
 
 But you can also run it on Linux or macOS.
 
-## Links
+## Resources
 
 * [RFC2045](https://tools.ietf.org/html/rfc2045) - MIME(old)
 * [RFC2324](https://tools.ietf.org/html/rfc2324) - HTCPCP
@@ -26,6 +26,12 @@ But you can also run it on Linux or macOS.
 * [RFC7230](https://tools.ietf.org/html/rfc7230) - HTTP/1.1(new)
 * [RFC7540](https://tools.ietf.org/html/rfc7540) - HTTP/2
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
+
+## Links
+
+* [Nginx](http://nginx.org/) - Nginx Website
+* [OpenResty](http://openresty.org/) - OpenResty Website
+* [ngx_lua](https://github.com/openresty/lua-nginx-module) - lua-nginx-module
 
 ## See Also
 
