@@ -3,7 +3,7 @@
 local misc = ngx.shared.misc
 
 local key = ngx.var.http_host .. "time"
-local time = tonumber(misc:get(key))
+local time = misc:get(key)
 
 if not time then
     time = ngx.time()
@@ -11,14 +11,16 @@ if not time then
 end
 
 local str = "HTTP Conditional Request \n" ..
-            "Now is " .. ngx.http_time(time)
+            "ID is " .. string.sub(time, -4, -1)
+            --"Now is " .. ngx.http_time(time)
 
 ngx.header['Content-Length'] = #str
 --ngx.header['Content-Type'] = 'text/plain'
 
-ngx.header['Cache-Control'] = 'public, max-age=10'
+--ngx.header['Cache-Control'] = 'public, max-age=10'
+ngx.header['Cache-Control'] = 'max-age=10, must-revalidate'
 
-ngx.header['Last-Modified'] = ngx.http_time(time)
+--ngx.header['Last-Modified'] = ngx.http_time(time)
 
 -- see ngx_http_set_etag() in ngx_http_core_module.c
 ngx.header['ETag'] = string.format('"%x-%x"', time, #str)
