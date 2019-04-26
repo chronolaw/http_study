@@ -3,7 +3,7 @@
 local misc = ngx.shared.misc
 
 local key = ngx.var.http_host .. "time"
-local time = tonumber(misc:get(key))
+local time = misc:get(key)
 
 if not time then
     time = ngx.time()
@@ -11,7 +11,8 @@ if not time then
 end
 
 local str = "HTTP Original Server\n" ..
-            "Now is " .. ngx.http_time(time) ..
+            "ID is " .. string.sub(time, -4, -1) .. '\n' ..
+            --"Now is " .. ngx.http_time(time) ..
             "\n\n"
 
 local fields = {'X-Real-IP', 'X-Forwarded-Host',
@@ -33,7 +34,7 @@ ngx.header['Origin'] = ngx.var.scheme .. "://" ..
 ngx.header['Cache-Control'] = 'public, max-age=10, s-maxage=30'
 --ngx.header['Expires'] = ngx.http_time(time + 10)
 
-ngx.header['Last-Modified'] = ngx.http_time(time)
+--ngx.header['Last-Modified'] = ngx.http_time(time)
 ngx.header['ETag'] = string.format('"%x-%x"', time, #str)
 
 ngx.print(str)
