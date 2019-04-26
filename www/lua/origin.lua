@@ -20,7 +20,7 @@ local fields = {'X-Real-IP', 'X-Forwarded-Host',
 
 local headers = ngx.req.get_headers()
 for _,v in ipairs(fields) do
-    str = str .. v .. " => " .. (headers[v] or '') .. "\n"
+    str = str .. v .. " => " .. (headers[v] or 'nil') .. "\n"
 end
 
 ngx.header['Content-Length'] = #str
