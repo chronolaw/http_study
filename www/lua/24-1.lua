@@ -13,19 +13,20 @@ end
 
 local algo_name = ngx.var.arg_algo or 'md5'
 
-local algo = require('resty.' .. algo_name)
+local ok, algo = pcall(require, 'resty.' .. algo_name)
 
-if not algo then
+if not ok then
     ngx.say('no algorithm: ', algo_name)
     return ngx.exit(400)
 end
 
-local plain = ngx.var.arg_text or '1234'
+local plain = ngx.var.arg_plain or '1234'
 
 local ctx = algo:new()
 
 ctx:update(plain)
 
+ngx.say('usage: /24-1?algo=xxx&plain=xxx\n')
 ngx.say('algo  : ', algo_name)
 ngx.say('plain : ', plain)
 ngx.say('digest: ', resty_str.to_hex(ctx:final()))

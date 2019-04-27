@@ -13,9 +13,9 @@ end
 
 local algo_name = ngx.var.arg_algo or 'sha1'
 
-local algo = require('resty.' .. algo_name)
+local ok, algo = pcall(require, 'resty.' .. algo_name)
 
-if not algo then
+if not ok then
     ngx.say('no algorithm: ', algo_name)
     return ngx.exit(400)
 end
@@ -46,10 +46,11 @@ emH+NTGnX6plyikqghnE8RAoR9TMsXR9Eg/KWvblxXS8/V4=
 -----END RSA PRIVATE KEY-----
 ]]
 
+ngx.say('usage: /24-2?algo=xxx&plain=xxx\n')
 ngx.say(rsa_public_key)
 ngx.say(rsa_priv_key)
 
-local plain = ngx.var.arg_text or '1234'
+local plain = ngx.var.arg_plain or '1234'
 
 local priv, err = resty_rsa:new(
     { private_key = rsa_priv_key, algorithm = algo_name })
@@ -57,7 +58,6 @@ local pub, err = resty_rsa:new(
     { public_key = rsa_public_key, algorithm = algo_name })
 
 local sig, err = priv:sign(plain)
-
 
 
 ngx.say('algo  : rsa1024 with ', algo_name)
