@@ -8,7 +8,7 @@ if scheme ~= 'https' then
         'https://'..ngx.var.host..ngx.var.request_uri, 301)
 end
 
-local str = 'hello ssl handshake\n'
+local str = 'ssl handshake with ' .. ngx.var.ssl_cipher .. '\n'
 
 ngx.header['Content-Length'] = #str
 
