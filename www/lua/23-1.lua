@@ -25,7 +25,7 @@ local salt = ngx.var.arg_salt
 
 if not key then
     ngx.say('you must submit a key for cipher: '..
-            '?key=xxx&plain=xxx'
+            ngx.var.uri .. '?key=xxx&plain=xxx'
             --'?key=xxx&salt=xxx'
             )
     return ngx.exit(400)
@@ -45,7 +45,7 @@ local aes_128_cbc_md5 = resty_aes:new(key, salt, cipher)
 local enc = aes_128_cbc_md5:encrypt(plain)
 local dec = aes_128_cbc_md5:decrypt(enc)
 
-ngx.say('usage: /23-1?key=xxx&plain=xxx\n')
+ngx.say('usage: ' .. ngx.var.uri .. '?key=xxx&plain=xxx\n')
 ngx.say('algo  = aes_128_cbc')
 ngx.say('plain = ', plain)
 ngx.say('enc   = ', resty_str.to_hex(enc))

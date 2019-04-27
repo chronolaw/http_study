@@ -26,7 +26,7 @@ local ctx = algo:new()
 
 ctx:update(plain)
 
-ngx.say('usage: /24-1?algo=xxx&plain=xxx\n')
+ngx.say('usage: ' .. ngx.var.uri .. '?algo=xxx&plain=xxx\n')
 ngx.say('algo  : ', algo_name)
 ngx.say('plain : ', plain)
 ngx.say('digest: ', resty_str.to_hex(ctx:final()))

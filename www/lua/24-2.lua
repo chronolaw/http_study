@@ -46,7 +46,7 @@ emH+NTGnX6plyikqghnE8RAoR9TMsXR9Eg/KWvblxXS8/V4=
 -----END RSA PRIVATE KEY-----
 ]]
 
-ngx.say('usage: /24-2?algo=xxx&plain=xxx\n')
+ngx.say('usage: ' .. ngx.var.uri .. '?algo=xxx&plain=xxx\n')
 ngx.say(rsa_public_key)
 ngx.say(rsa_priv_key)
 
