@@ -16,8 +16,8 @@ local algo_name = ngx.var.arg_algo or 'md5'
 local ok, algo = pcall(require, 'resty.' .. algo_name)
 
 if not ok then
-    ngx.say('no algorithm: ', algo_name)
-    return ngx.exit(400)
+    ngx.status = 400
+    return ngx.say('no algorithm: ', algo_name)
 end
 
 local plain = ngx.var.arg_plain or '1234'

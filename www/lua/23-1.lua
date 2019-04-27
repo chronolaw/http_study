@@ -24,11 +24,11 @@ local plain = ngx.var.arg_plain or 'hello openssl'
 local salt = ngx.var.arg_salt
 
 if not key then
-    ngx.say('you must submit a key for cipher: '..
+    ngx.status = 400
+    return ngx.say('you must submit a key for cipher: '..
             ngx.var.uri .. '?key=xxx&plain=xxx'
             --'?key=xxx&salt=xxx'
             )
-    return ngx.exit(400)
 end
 
 local cipher

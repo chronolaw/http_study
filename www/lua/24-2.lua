@@ -16,8 +16,8 @@ local algo_name = ngx.var.arg_algo or 'sha1'
 local ok, algo = pcall(require, 'resty.' .. algo_name)
 
 if not ok then
-    ngx.say('no algorithm: ', algo_name)
-    return ngx.exit(400)
+    ngx.status = 400
+    return ngx.say('no algorithm: ', algo_name)
 end
 
 local rsa_public_key = [[
