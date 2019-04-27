@@ -10,6 +10,8 @@ if scheme ~= 'https' then
         'https://'..ngx.var.host..ngx.var.request_uri, 301)
 end
 
+local plain = ngx.var.arg_plain or 'hello openssl'
+
 --[[
 local time = ngx.now()
 
@@ -47,6 +49,7 @@ emH+NTGnX6plyikqghnE8RAoR9TMsXR9Eg/KWvblxXS8/V4=
 -----END RSA PRIVATE KEY-----
 ]]
 
+ngx.say('usage: /23-2?plain=xxx\n')
 ngx.say(rsa_public_key)
 ngx.say(rsa_priv_key)
 
@@ -55,7 +58,7 @@ local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
 
 local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
 
-local plain = 'hello openssl'
+--local plain = 'hello openssl'
 local enc = pub:encrypt(plain)
 local dec = priv:decrypt(enc)
 
