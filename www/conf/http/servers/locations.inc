@@ -35,7 +35,7 @@
 
         #enable cache
         proxy_cache cache_one;
-        add_header  Cache-Hit $upstream_cache_status;
+        add_header  X-Cache $upstream_cache_status;
         add_header  X-Accel $server_name;
 
         proxy_pass http://origin.io;
