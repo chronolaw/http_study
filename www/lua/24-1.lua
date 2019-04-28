@@ -1,33 +1,52 @@
 -- Copyright (C) 2019 by chrono
--- digest algorithm
+-- aes encrypt and decrypt
 
-local resty_rsa = require "resty.rsa"
+local resty_aes = require "resty.aes"
 local resty_str = require "resty.string"
+
+local ffi = require "ffi"
+local C = ffi.C
+
+-- try aes_gcm
+ffi.cdef[[
+const EVP_CIPHER *EVP_aes_128_ccm(void);
+const EVP_CIPHER *EVP_aes_128_gcm(void);
+]]
 
 local scheme = ngx.var.scheme
 if scheme ~= 'https' then
-    --ngx.log(ngx.ERR, scheme)
     return ngx.redirect(
         'https://'..ngx.var.host..ngx.var.request_uri, 301)
 end
 
-local algo_name = ngx.var.arg_algo or 'md5'
+local key = ngx.var.arg_key
+local plain = ngx.var.arg_plain or 'hello openssl'
+local salt = ngx.var.arg_salt
 
-local ok, algo = pcall(require, 'resty.' .. algo_name)
-
-if not ok then
+if not key then
     ngx.status = 400
-    return ngx.say('no algorithm: ', algo_name)
+    return ngx.say('you must submit a key for cipher: '..
+            ngx.var.uri .. '?key=xxx&plain=xxx'
+            --'?key=xxx&salt=xxx'
+            )
 end
 
-local plain = ngx.var.arg_plain or '1234'
+local cipher
 
-local ctx = algo:new()
+--local gcm_func = C['EVP_aes_128_gcm']()
+--if gcm_func then
+--    cipher = {size = 128, cipher = 'gcm',
+--              method = gcm_func}
+--end
 
-ctx:update(plain)
+local aes_128_cbc_md5 = resty_aes:new(key, salt, cipher)
 
-ngx.say('usage: ' .. ngx.var.uri .. '?algo=xxx&plain=xxx\n')
-ngx.say('algo  : ', algo_name)
-ngx.say('plain : ', plain)
-ngx.say('digest: ', resty_str.to_hex(ctx:final()))
+--local plain = 'hello openssl'
+local enc = aes_128_cbc_md5:encrypt(plain)
+local dec = aes_128_cbc_md5:decrypt(enc)
 
+ngx.say('usage: ' .. ngx.var.uri .. '?key=xxx&plain=xxx\n')
+ngx.say('algo  = aes_128_cbc')
+ngx.say('plain = ', plain)
+ngx.say('enc   = ', resty_str.to_hex(enc))
+ngx.say('dec   = ', dec)

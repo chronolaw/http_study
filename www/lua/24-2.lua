@@ -1,24 +1,27 @@
 -- Copyright (C) 2019 by chrono
--- sign and verify
+-- rsa1024 encrypt and decrypt
 
 local resty_rsa = require "resty.rsa"
 local resty_str = require "resty.string"
 
 local scheme = ngx.var.scheme
 if scheme ~= 'https' then
-    --ngx.log(ngx.ERR, scheme)
     return ngx.redirect(
         'https://'..ngx.var.host..ngx.var.request_uri, 301)
 end
 
-local algo_name = ngx.var.arg_algo or 'sha1'
+local plain = ngx.var.arg_plain or 'hello openssl'
 
-local ok, algo = pcall(require, 'resty.' .. algo_name)
+--[[
+local time = ngx.now()
 
-if not ok then
-    ngx.status = 400
-    return ngx.say('no algorithm: ', algo_name)
+local rsa_public_key, rsa_priv_key, err = resty_rsa:generate_rsa_keys(1024)
+if not rsa_public_key then
+    ngx.say('generate rsa keys err: ', err)
 end
+
+ngx.say('rsa1024 genkey time = ', ngx.now() - time, 's\n')
+--]]
 
 local rsa_public_key = [[
 -----BEGIN RSA PUBLIC KEY-----
@@ -46,22 +49,19 @@ emH+NTGnX6plyikqghnE8RAoR9TMsXR9Eg/KWvblxXS8/V4=
 -----END RSA PRIVATE KEY-----
 ]]
 
-ngx.say('usage: ' .. ngx.var.uri .. '?algo=xxx&plain=xxx\n')
+ngx.say('usage: ' .. ngx.var.uri .. '?plain=xxx\n')
 ngx.say(rsa_public_key)
 ngx.say(rsa_priv_key)
 
-local plain = ngx.var.arg_plain or '1234'
+local pub, err = resty_rsa:new({ public_key = rsa_public_key })
+local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
 
-local priv, err = resty_rsa:new(
-    { private_key = rsa_priv_key, algorithm = algo_name })
-local pub, err = resty_rsa:new(
-    { public_key = rsa_public_key, algorithm = algo_name })
+local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
 
-local sig, err = priv:sign(plain)
+--local plain = 'hello openssl'
+local enc = pub:encrypt(plain)
+local dec = priv:decrypt(enc)
 
-
-ngx.say('algo  : rsa1024 with ', algo_name)
-ngx.say('plain : ', plain)
-ngx.say('signature: ', resty_str.to_hex(sig))
-ngx.say('verify   : ', pub:verify(plain, sig))
-
+ngx.say('plain = ', plain)
+ngx.say('enc   = ', resty_str.to_hex(enc))
+ngx.say('dec   = ', dec)
