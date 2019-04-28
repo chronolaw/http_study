@@ -24,7 +24,7 @@ for _,v in ipairs(fields) do
 end
 
 ngx.header['Content-Length'] = #str
-ngx.header['X-Powered-By'] = 'ngx_lua_' .. ngx.config.ngx_lua_version
+--ngx.header['X-Powered-By'] = 'ngx_lua_' .. ngx.config.ngx_lua_version
 --ngx.header['Content-Type'] = 'text/plain'
 
 ngx.header['Origin'] = ngx.var.scheme .. "://" ..
