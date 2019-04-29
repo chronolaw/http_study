@@ -22,5 +22,5 @@ if cache_status == 'HIT' then
 end
 
 local rate = hit * 100 / total
-ngx.header['X-Hit-Rate'] = string.format('%.2f%%', rate)
+ngx.header['X-Hit'] = string.format('%.2f%%', rate)
 
