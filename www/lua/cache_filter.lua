@@ -5,7 +5,7 @@ if ngx.get_phase() ~= 'header_filter' then
 end
 
 local cache_status = ngx.var.upstream_cache_status
-local accel = ngx.var.server_name
+local accel = ngx.var.http_host or ngx.var.server_name
 
 ngx.header['X-Cache'] = cache_status
 ngx.header['X-Accel'] = accel
@@ -21,5 +21,6 @@ if cache_status == 'HIT' then
     hit = misc:incr('hit', 1, 0)
 end
 
-ngx.header['X-Hit-Rate'] = hit / total
+local rate = hit * 100 / total
+ngx.header['X-Hit-Rate'] = string.format('%.2f%%', rate)
 
