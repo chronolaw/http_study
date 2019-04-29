@@ -35,10 +35,12 @@
 
         #enable cache
         proxy_cache cache_one;
-        add_header  X-Cache $upstream_cache_status;
-        add_header  X-Accel $server_name;
 
         proxy_pass http://origin.io;
+
+        #add_header  X-Cache $upstream_cache_status;
+        #add_header  X-Accel $server_name;
+        header_filter_by_lua_file lua/cache_filter.lua;
     }
 
     # curl 127.1/07-1
