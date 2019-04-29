@@ -1,6 +1,6 @@
 -- Copyright (C) 2019 by chrono
 
-if ngx.get_phase() ~= 'filter' then
+if ngx.get_phase() ~= 'header_filter' then
     return
 end
 
