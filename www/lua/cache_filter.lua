@@ -13,11 +13,11 @@ ngx.header['X-Accel'] = ngx.var.server_name
 -- hit rate
 local misc = ngx.shared.misc
 
-local total = misc:incr('total_req', 1)
+local total = misc:incr('total_req', 1, 0)
 local hit = misc:get('hit') or 0
 
 if cache_status == 'HIT' then
-    hit = misc:incr('hit', 1)
+    hit = misc:incr('hit', 1, 0)
 end
 
 ngx.header['X-Hit-Rate'] = hit / total
