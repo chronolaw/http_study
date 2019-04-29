@@ -33,8 +33,8 @@ if need_cache then
     ngx.header['ETag'] = string.format('"%x-%x"', time, #str)
 else
     -- only proxy
-    local fields = {'X-Real-IP', 'X-Forwarded-Host',
-                    'X-Forwarded-Proto', 'X-Forwarded-For'}
+    local fields = {'X-Real-IP' 'X-Forwarded-For',
+                    'X-Forwarded-Host', 'X-Forwarded-Proto',}
 
     local headers = ngx.req.get_headers()
     for _,v in ipairs(fields) do
