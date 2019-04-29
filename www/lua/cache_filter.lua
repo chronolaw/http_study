@@ -5,9 +5,10 @@ if ngx.get_phase() ~= 'header_filter' then
 end
 
 local cache_status = ngx.var.upstream_cache_status
+local accel = ngx.var.server_name
 
-ngx.header['X-Cache'] = ngx.var.upstream_cache_status
-ngx.header['X-Accel'] = ngx.var.server_name
+ngx.header['X-Cache'] = cache_status
+ngx.header['X-Accel'] = accel
 
 
 -- hit rate
