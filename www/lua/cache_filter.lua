@@ -14,7 +14,7 @@ ngx.header['X-Accel'] = ngx.var.server_name
 local misc = ngx.shared.misc
 
 local total = misc:incr('total_req', 1)
-local hit = misc:get('hit')
+local hit = misc:get('hit') or 0
 
 if cache_status == 'HIT' then
     hit = misc:incr('hit', 1)
