@@ -17,9 +17,10 @@ But you can also run it on Linux or macOS.
 * [RFC2616](https://tools.ietf.org/html/rfc2616) - HTTP/1.1(old)
 * [RFC2818](https://tools.ietf.org/html/rfc2818) - HTTPS
 * [RFC3986](https://tools.ietf.org/html/rfc3986) - URI
+* [RFC4492](https://tools.ietf.org/html/rfc4492) - ECC Suites for TLS
 * [RFC5246](https://tools.ietf.org/html/rfc5246) - TLS 1.2
-* [RFC5288](https://tools.ietf.org/html/rfc5288) - AES_GCM suites
-* [RFC5289](https://tools.ietf.org/html/rfc5289) - ECC_AES_GCM suites
+* [RFC5288](https://tools.ietf.org/html/rfc5288) - AES_GCM Suites
+* [RFC5289](https://tools.ietf.org/html/rfc5289) - ECC_AES_GCM Suites
 * [RFC6265](https://tools.ietf.org/html/rfc6265) - Cookie
 * [RFC6455](https://tools.ietf.org/html/rfc6455) - WebSocket
 * [RFC6648](https://tools.ietf.org/html/rfc6648) - Deprecating the "X-" Prefix
