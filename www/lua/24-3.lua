@@ -139,7 +139,7 @@ ngx.flush(true)
 
 -- ratio
 
-ngx.say(string.format('rsa1024/aes ratio = %.02f\n', rsa_time / aes_time))
+ngx.say(string.format('rsa_1024/aes ratio = %.02f\n', rsa_time / aes_time))
 ngx.flush(true)
 ngx.sleep(0)
 
@@ -218,4 +218,4 @@ local rsa_time = (tonumber(now.tv_sec) - tonumber(tm.tv_sec)) * 1000 +
 ngx.say(string.format('%.02fms\n', rsa_time))
 
 -- ratio
-ngx.say(string.format('rsa2048/aes ratio = %.02f\n', rsa_time / aes_time))
+ngx.say(string.format('rsa_2048/aes ratio = %.02f\n', rsa_time / aes_time))
