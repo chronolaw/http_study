@@ -67,6 +67,10 @@ local count = tonumber(ngx.var.arg_count or 1000)
 ---- aes_cbc
 
 local plain = 'hello openssl'
+local data_len = #plain * count
+
+ngx.say('plain = ', plain)
+ngx.say('count = ', count, '\n')
 
 local key = 'a_key_for_aes'
 local aes_128_cbc_md5 = resty_aes:new(key)
@@ -93,7 +97,7 @@ ngx.print('aes_128_cbc enc/dec ', count, ' times : ')
 --local aes_time = (tonumber(now.tv_sec) - tonumber(tm.tv_sec)) * 1000 +
 --                 (tonumber(now.tv_usec) - tonumber(tm.tv_usec)) / 1000
 
-ngx.say(string.format('%.02fms\n', aes_time))
+ngx.say(string.format('%.02fms, %.02fKB/s\n', aes_time, data_len / aes_time))
 ngx.flush(true)
 ngx.sleep(0)
 
@@ -148,7 +152,7 @@ ngx.print('rsa_1024 enc/dec ', count, ' times : ')
 --local rsa_time = (tonumber(now.tv_sec) - tonumber(tm.tv_sec)) * 1000 +
 --                 (tonumber(now.tv_usec) - tonumber(tm.tv_usec)) / 1000
 
-ngx.say(string.format('%.02fms\n', rsa_time))
+ngx.say(string.format('%.02fms, %.02fKB/s\n', rsa_time, data_len / rsa_time))
 ngx.flush(true)
 
 -- ratio
@@ -231,7 +235,7 @@ ngx.print('rsa_2048 enc/dec ', count, ' times : ')
 --local rsa_time = (tonumber(now.tv_sec) - tonumber(tm.tv_sec)) * 1000 +
 --                 (tonumber(now.tv_usec) - tonumber(tm.tv_usec)) / 1000
 
-ngx.say(string.format('%.02fms\n', rsa_time))
+ngx.say(string.format('%.02fms, %.02fKB/s\n', rsa_time, data_len / rsa_time))
 
 -- ratio
 ngx.say(string.format('rsa_2048/aes ratio = %.02f\n', rsa_time / aes_time))
