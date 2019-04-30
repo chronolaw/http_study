@@ -97,7 +97,7 @@ ngx.print('aes_128_cbc enc/dec ', count, ' times : ')
 --local aes_time = (tonumber(now.tv_sec) - tonumber(tm.tv_sec)) * 1000 +
 --                 (tonumber(now.tv_usec) - tonumber(tm.tv_usec)) / 1000
 
-ngx.say(string.format('%.02fms, %.02fKB/s\n', aes_time, data_len / aes_time))
+ngx.say(string.format('%.02fms, %.02fMB/s\n', aes_time, data_len / aes_time / 1000))
 ngx.flush(true)
 ngx.sleep(0)
 
