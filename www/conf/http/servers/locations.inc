@@ -35,6 +35,7 @@
 
         #enable cache
         proxy_cache cache_one;
+        proxy_cache_use_stale on;
 
         proxy_pass http://origin.io;
 
