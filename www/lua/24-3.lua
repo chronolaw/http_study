@@ -61,6 +61,7 @@ local aes_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
                  (tonumber(tm.tv_sec) * 1000 + tonumber(tm.tv_usec) / 1000)
 
 ngx.say(string.format('%.02fms\n', aes_time))
+ngx.flush(true)
 
 -- rsa 1024
 
@@ -110,7 +111,84 @@ local rsa_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
                  (tonumber(tm.tv_sec) * 1000 + tonumber(tm.tv_usec) / 1000)
 
 ngx.say(string.format('%.02fms\n', rsa_time))
+ngx.flush(true)
 
 -- ratio
 
-ngx.say(string.format('rsa/aes ratio = %.02f', rsa_time / aes_time))
+ngx.say(string.format('rsa1024/aes ratio = %.02f\n', rsa_time / aes_time))
+ngx.flush(true)
+
+-- rsa 2048
+
+--[[
+local rsa_public_key, rsa_priv_key, err = resty_rsa:generate_rsa_keys(2048)
+if not rsa_public_key then
+    ngx.say('generate rsa keys err: ', err)
+end
+
+ngx.say(rsa_public_key)
+ngx.say(rsa_priv_key)
+--]]
+
+local rsa_public_key = [[
+-----BEGIN RSA PUBLIC KEY-----
+MIIBCgKCAQEAv7ZuHcxFfwPqicpsxXuXmcCE4fauuDNO+FiiM2c6fzgpELP6unyl
+UWLqENPkGkQ2NmhG9qvENPB5DQVTxWVeSHGjYh8ap9VahoHTmmgUyx6r9ofi8H3e
+k1WcOF7VQlnqzZ9RmVZgFH/jd5m+h9M1FqdDS069MvvcJvjY0iHRHTs4MMNepqv8
+blawM7uD4OhXMqCIyjCC6RDznnWExPMRbkN7Nabc2HFUfuK4qXGRUZNHhDMD7Btw
+osJjk5qIhDCuWP9KJdDRrglyP2/IxR/U5ee9vNajw/1coX5+AhaLDf06yOnXNu3/
+uK965P8kM/SDczm783jWfiCiv3C4vDnZXwIDAQAB
+-----END RSA PUBLIC KEY-----
+]]
+
+local rsa_priv_key =[[
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAv7ZuHcxFfwPqicpsxXuXmcCE4fauuDNO+FiiM2c6fzgpELP6
+unylUWLqENPkGkQ2NmhG9qvENPB5DQVTxWVeSHGjYh8ap9VahoHTmmgUyx6r9ofi
+8H3ek1WcOF7VQlnqzZ9RmVZgFH/jd5m+h9M1FqdDS069MvvcJvjY0iHRHTs4MMNe
+pqv8blawM7uD4OhXMqCIyjCC6RDznnWExPMRbkN7Nabc2HFUfuK4qXGRUZNHhDMD
+7BtwosJjk5qIhDCuWP9KJdDRrglyP2/IxR/U5ee9vNajw/1coX5+AhaLDf06yOnX
+Nu3/uK965P8kM/SDczm783jWfiCiv3C4vDnZXwIDAQABAoIBAQC0jkFZaRiOzoZm
+7bHRsFwQX2QHWQgmzZPzi65/0Roj1SW/6HIcjuY4J3uhC58KKfIQ/dbP3Of2oACy
+BbFm+Nh6TCR/diHpraQLiFxdUOc8gg+dKU/QBgvJIVj3MkGRsxPUQtdcHiBxTh1S
+eAcc7wtR4YgcdfT0/oXSYo36IgVLi+gWgRDcQMGwPJx/Qts5WbJlfWmDI+zZ8Z5y
+5VvNQCWfgCKmC74oeP3QEJVpU6lZp7nSgSsIM+83CiSs5NSftdCJhS5PA7qicuyT
+Qzs/OpB7Vk0axKsmuG9XLMtK/aARdUESqBwuh4LlEcwpLfQS5Z9BW4q5OOH1P0UP
+wLORt2TxAoGBAOTEJ/TgiZ789BBKnmlE2lDD19pKGc7hvCOh+3PksTnRji8taeaJ
+iFeoAW/S3Zvsb/ODsYhlcmw5QXB8lSW8fUfbiDy+B2ozwO1eGKpPRUT1b+qHetPF
+Wb+TT48n9bF5fndaL/mkJxU+wqYPa9YN3fymdc+ey8OSHuPsm/OZjQ65AoGBANaJ
+CKmg5iWUVNS555gfTPLnvoUlmGj1UyS8QsrogtS25qtBXGMrHbO1lfzZ3/43MwQx
+kT20fr1JIngiodJMKN/4h06v7vUrjDto14vQJrAVVi6soYu4VNN+aFM2Jo+VQtmD
+t1HQfnf8CzHaDNcaFyGoUUBDBpLLfB4yWKlFOFzXAoGBANoLAM6NKX7pOLNCfAR4
+BOHQGK/NyxV94LXR0Xqf8i/axXu//F0on1R1JJFx2ZmhXP8seY04rDvswqu1gu8J
+3hscapkCwsx98ZgNBNNnZO2aRgazBOZOBwHrJXycKLj0xQ57XpjB1iKQxDRFJJJM
+e1YxTr8KasrIPjseLXKc2265AoGAe1NnIWwXIT81zNvZoH9N0s0ZnpzQEnYEh7eZ
+hd9HZlSGIah/HZrphic6w5HTy+WbdCuyXJBn0xQ5tmniMGwLi0TpM3i7m0Cfan+I
+eRz9QHfjhQ1ECHe8e5/NBRi57gxV04h+V4/NQ9gl71Bz1StwZK7HlnNxUe2buhgj
+E5txHR0CgYEA0JE8z8kM3qCKO3RqF+xUQbJGeb5oqtRRC1O1sU9Ovc8u863tvghv
+3QAa9+WhwW5LtX3Ey5rkBicSEQC2LU1aWiiAnhWdBzsVt8ydto+JYsw7qce0rjHM
+NFN6HSMLlAWgq2ggkeT5h/btVflm6EyCIqr7LuXGQ5CqXK9tMaISM6o=
+-----END RSA PRIVATE KEY-----
+]]
+
+local pub, err = resty_rsa:new({ public_key = rsa_public_key })
+local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
+
+ffi_C.gettimeofday(tm, ffi_null)
+
+for i = 1, count do
+    enc = pub:encrypt(plain)
+    dec = priv:decrypt(enc)
+end
+
+ffi_C.gettimeofday(now, ffi_null)
+
+ngx.print('rsa_2048 enc/dec ', count, ' times : ')
+
+local rsa_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
+                 (tonumber(tm.tv_sec) * 1000 + tonumber(tm.tv_usec) / 1000)
+
+ngx.say(string.format('%.02fms\n', rsa_time))
+
+-- ratio
+ngx.say(string.format('rsa2048/aes ratio = %.02f\n', rsa_time / aes_time))
