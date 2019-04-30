@@ -56,8 +56,6 @@ ngx.say(rsa_priv_key)
 local pub, err = resty_rsa:new({ public_key = rsa_public_key })
 local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
 
-local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
-
 --local plain = 'hello openssl'
 local enc = pub:encrypt(plain)
 local dec = priv:decrypt(enc)
