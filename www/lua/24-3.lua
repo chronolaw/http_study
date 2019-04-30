@@ -46,7 +46,7 @@ local plain = 'hello openssl'
 local key = 'a_key_for_aes'
 local aes_128_cbc_md5 = resty_aes:new(key)
 
-ffi_C.ngx_gettimeofday(tm, ffi_null)
+ffi_C.ngx_gettimeofday(tm)
 
 local enc, dec
 
@@ -55,7 +55,7 @@ for i = 1, count do
     dec = aes_128_cbc_md5:decrypt(enc)
 end
 
-ffi_C.ngx_gettimeofday(now, ffi_null)
+ffi_C.ngx_gettimeofday(now)
 
 ngx.print('aes_128_cbc enc/dec ', count, ' times : ')
 --ngx.print(tonumber(now.tv_sec) - tonumber(tm.tv_sec), 's ')
@@ -99,14 +99,14 @@ emH+NTGnX6plyikqghnE8RAoR9TMsXR9Eg/KWvblxXS8/V4=
 local pub, err = resty_rsa:new({ public_key = rsa_public_key })
 local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
 
-ffi_C.ngx_gettimeofday(tm, ffi_null)
+ffi_C.ngx_gettimeofday(tm)
 
 for i = 1, count do
     enc = pub:encrypt(plain)
     dec = priv:decrypt(enc)
 end
 
-ffi_C.ngx_gettimeofday(now, ffi_null)
+ffi_C.ngx_gettimeofday(now)
 
 ngx.print('rsa_1024 enc/dec ', count, ' times : ')
 --ngx.print(tonumber(now.tv_sec) - tonumber(tm.tv_sec), 's ')
@@ -180,14 +180,14 @@ NFN6HSMLlAWgq2ggkeT5h/btVflm6EyCIqr7LuXGQ5CqXK9tMaISM6o=
 local pub, err = resty_rsa:new({ public_key = rsa_public_key })
 local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
 
-ffi_C.ngx_gettimeofday(tm, ffi_null)
+ffi_C.ngx_gettimeofday(tm)
 
 for i = 1, count do
     enc = pub:encrypt(plain)
     dec = priv:decrypt(enc)
 end
 
-ffi_C.ngx_gettimeofday(now, ffi_null)
+ffi_C.ngx_gettimeofday(now)
 
 ngx.print('rsa_2048 enc/dec ', count, ' times : ')
 
