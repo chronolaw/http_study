@@ -34,8 +34,8 @@
         internal;
 
         #enable cache
-        proxy_cache cache_one;
-        proxy_cache_use_stale on;
+        proxy_cache www_cache;
+        proxy_cache_use_stale error timeout;
 
         proxy_pass http://origin.io;
 
