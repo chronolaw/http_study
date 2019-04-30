@@ -25,7 +25,11 @@ if not pcall(ffi_typeof, "struct timeval") then
         long int tv_usec;
     };
 
-    int gettimeofday(struct timeval *tv, void *tz);
+    // linux
+    //int gettimeofday(struct timeval *tv, void *tz);
+
+    // linux and windows
+    int ngx_gettimeofday(struct timeval *tv);
     ]]
 end
 
@@ -62,6 +66,7 @@ local aes_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
 
 ngx.say(string.format('%.02fms\n', aes_time))
 ngx.flush(true)
+ngx.sleep(0)
 
 -- rsa 1024
 
@@ -117,6 +122,7 @@ ngx.flush(true)
 
 ngx.say(string.format('rsa1024/aes ratio = %.02f\n', rsa_time / aes_time))
 ngx.flush(true)
+ngx.sleep(0)
 
 -- rsa 2048
 
