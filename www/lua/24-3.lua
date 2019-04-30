@@ -19,18 +19,33 @@ if scheme ~= 'https' then
 end
 
 if not pcall(ffi_typeof, "struct timeval") then
+
     ffi_cdef[[
     struct timeval {
         long int tv_sec;
         long int tv_usec;
     };
-
-    // linux
-    //int gettimeofday(struct timeval *tv, void *tz);
-
-    // linux and windows
-    int ngx_gettimeofday(struct timeval *tv);
     ]]
+
+    if jit.os == 'Linux' then
+        ffi_cdef[[
+        // linux
+        int gettimeofday(struct timeval *tv, void *tz);
+        ]]
+    else
+        ffi_cdef[[
+        // windows
+        int ngx_gettimeofday(struct timeval *tv);
+        ]]
+    end
+end
+
+local function ngx_gettimeofday(tv)
+    if jit.os == 'Linux' then
+        return ffi_C.gettimeofday(tv, ffi_null)
+    else
+        return ffi_C.ngx_gettimeofday(tv)
+    end
 end
 
 local timeval_t = ffi_typeof("struct timeval")
@@ -46,7 +61,7 @@ local plain = 'hello openssl'
 local key = 'a_key_for_aes'
 local aes_128_cbc_md5 = resty_aes:new(key)
 
-ffi_C.ngx_gettimeofday(tm)
+ngx_gettimeofday(tm)
 
 local enc, dec
 
@@ -55,14 +70,16 @@ for i = 1, count do
     dec = aes_128_cbc_md5:decrypt(enc)
 end
 
-ffi_C.ngx_gettimeofday(now)
+ngx_gettimeofday(now)
 
 ngx.print('aes_128_cbc enc/dec ', count, ' times : ')
 --ngx.print(tonumber(now.tv_sec) - tonumber(tm.tv_sec), 's ')
 --ngx.print(tonumber(now.tv_usec) - tonumber(tm.tv_usec), 'us\n')
 
-local aes_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
-                 (tonumber(tm.tv_sec) * 1000 + tonumber(tm.tv_usec) / 1000)
+--local aes_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
+--                 (tonumber(tm.tv_sec) * 1000 + tonumber(tm.tv_usec) / 1000)
+local aes_time = (tonumber(now.tv_sec) - tonumber(tm.tv_sec)) * 1000 +
+                 (tonumber(now.tv_usec) - tonumber(tm.tv_usec)) / 1000
 
 ngx.say(string.format('%.02fms\n', aes_time))
 ngx.flush(true)
@@ -99,21 +116,23 @@ emH+NTGnX6plyikqghnE8RAoR9TMsXR9Eg/KWvblxXS8/V4=
 local pub, err = resty_rsa:new({ public_key = rsa_public_key })
 local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
 
-ffi_C.ngx_gettimeofday(tm)
+ngx_gettimeofday(tm)
 
 for i = 1, count do
     enc = pub:encrypt(plain)
     dec = priv:decrypt(enc)
 end
 
-ffi_C.ngx_gettimeofday(now)
+ngx_gettimeofday(now)
 
 ngx.print('rsa_1024 enc/dec ', count, ' times : ')
 --ngx.print(tonumber(now.tv_sec) - tonumber(tm.tv_sec), 's ')
 --ngx.print(tonumber(now.tv_usec) - tonumber(tm.tv_usec), 'us\n')
 
-local rsa_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
-                 (tonumber(tm.tv_sec) * 1000 + tonumber(tm.tv_usec) / 1000)
+--local rsa_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
+--                 (tonumber(tm.tv_sec) * 1000 + tonumber(tm.tv_usec) / 1000)
+local rsa_time = (tonumber(now.tv_sec) - tonumber(tm.tv_sec)) * 1000 +
+                 (tonumber(now.tv_usec) - tonumber(tm.tv_usec)) / 1000
 
 ngx.say(string.format('%.02fms\n', rsa_time))
 ngx.flush(true)
@@ -180,19 +199,21 @@ NFN6HSMLlAWgq2ggkeT5h/btVflm6EyCIqr7LuXGQ5CqXK9tMaISM6o=
 local pub, err = resty_rsa:new({ public_key = rsa_public_key })
 local priv, err = resty_rsa:new({ private_key = rsa_priv_key })
 
-ffi_C.ngx_gettimeofday(tm)
+ngx_gettimeofday(tm)
 
 for i = 1, count do
     enc = pub:encrypt(plain)
     dec = priv:decrypt(enc)
 end
 
-ffi_C.ngx_gettimeofday(now)
+ngx_gettimeofday(now)
 
 ngx.print('rsa_2048 enc/dec ', count, ' times : ')
 
-local rsa_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
-                 (tonumber(tm.tv_sec) * 1000 + tonumber(tm.tv_usec) / 1000)
+--local rsa_time = (tonumber(now.tv_sec) * 1000 + tonumber(now.tv_usec) / 1000) -
+--                 (tonumber(tm.tv_sec) * 1000 + tonumber(tm.tv_usec) / 1000)
+local rsa_time = (tonumber(now.tv_sec) - tonumber(tm.tv_sec)) * 1000 +
+                 (tonumber(now.tv_usec) - tonumber(tm.tv_usec)) / 1000
 
 ngx.say(string.format('%.02fms\n', rsa_time))
 
