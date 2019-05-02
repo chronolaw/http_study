@@ -29,6 +29,7 @@ But you can also run it on Linux or macOS.
 * [RFC7168](https://tools.ietf.org/html/rfc7168) - HTCPCP-TEA
 * [RFC7230](https://tools.ietf.org/html/rfc7230) - HTTP/1.1(new)
 * [RFC7540](https://tools.ietf.org/html/rfc7540) - HTTP/2
+* [RFC7748](https://tools.ietf.org/html/rfc7748) - ECC x25519
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
 
 ## Links
