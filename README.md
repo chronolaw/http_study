@@ -12,17 +12,12 @@ But you can also run it on Linux or macOS.
 
 ## Resources
 
+HTTP
+
 * [RFC2045](https://tools.ietf.org/html/rfc2045) - MIME(old)
 * [RFC2324](https://tools.ietf.org/html/rfc2324) - HTCPCP
 * [RFC2616](https://tools.ietf.org/html/rfc2616) - HTTP/1.1(old)
-* [RFC2818](https://tools.ietf.org/html/rfc2818) - HTTPS
 * [RFC3986](https://tools.ietf.org/html/rfc3986) - URI
-* [RFC4492](https://tools.ietf.org/html/rfc4492) - ECC Suites for TLS
-* [RFC5077](https://tools.ietf.org/html/rfc5077) - TLS Session Resumption
-* [RFC5116](https://tools.ietf.org/html/rfc5116) - AES AEAD
-* [RFC5246](https://tools.ietf.org/html/rfc5246) - TLS 1.2
-* [RFC5288](https://tools.ietf.org/html/rfc5288) - AES_GCM Suites
-* [RFC5289](https://tools.ietf.org/html/rfc5289) - ECC_AES_GCM Suites
 * [RFC6265](https://tools.ietf.org/html/rfc6265) - Cookie
 * [RFC6455](https://tools.ietf.org/html/rfc6455) - WebSocket
 * [RFC6648](https://tools.ietf.org/html/rfc6648) - Deprecating the "X-" Prefix
@@ -30,6 +25,17 @@ But you can also run it on Linux or macOS.
 * [RFC7168](https://tools.ietf.org/html/rfc7168) - HTCPCP-TEA
 * [RFC7230](https://tools.ietf.org/html/rfc7230) - HTTP/1.1(new)
 * [RFC7540](https://tools.ietf.org/html/rfc7540) - HTTP/2
+
+HTTPS/SSL/TLS
+
+* [RFC2818](https://tools.ietf.org/html/rfc2818) - HTTPS
+* [RFC4492](https://tools.ietf.org/html/rfc4492) - ECC Suites for TLS
+* [RFC5077](https://tools.ietf.org/html/rfc5077) - TLS Session Resumption
+* [RFC5116](https://tools.ietf.org/html/rfc5116) - AES AEAD
+* [RFC5246](https://tools.ietf.org/html/rfc5246) - TLS 1.2
+* [RFC5280](https://tools.ietf.org/html/rfc5280) - X.509 Cert
+* [RFC5288](https://tools.ietf.org/html/rfc5288) - AES_GCM Suites
+* [RFC5289](https://tools.ietf.org/html/rfc5289) - ECC_AES_GCM Suites
 * [RFC7748](https://tools.ietf.org/html/rfc7748) - ECC x25519
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
 
