@@ -33,9 +33,10 @@ HTTPS/SSL/TLS
 * [RFC5077](https://tools.ietf.org/html/rfc5077) - TLS Session Resumption
 * [RFC5116](https://tools.ietf.org/html/rfc5116) - AES AEAD
 * [RFC5246](https://tools.ietf.org/html/rfc5246) - TLS 1.2
-* [RFC5280](https://tools.ietf.org/html/rfc5280) - X.509 Cert
+* [RFC5280](https://tools.ietf.org/html/rfc5280) - X.509 v3
 * [RFC5288](https://tools.ietf.org/html/rfc5288) - AES_GCM Suites
 * [RFC5289](https://tools.ietf.org/html/rfc5289) - ECC_AES_GCM Suites
+* [RFC6960](https://tools.ietf.org/html/rfc6960) - OCSP
 * [RFC7748](https://tools.ietf.org/html/rfc7748) - ECC x25519
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
 
