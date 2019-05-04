@@ -51,6 +51,8 @@ Others
 * [Nginx](http://nginx.org/) - Nginx Website
 * [OpenResty](http://openresty.org/) - OpenResty Website
 * [ngx_lua](https://github.com/openresty/lua-nginx-module) - lua-nginx-module
+* [stream_lua](https://github.com/openresty/stream-lua-nginx-module) - stream-lua-nginx-module
+* [lua-resty-core](https://github.com/openresty/lua-resty-core) - lua-resty-core
 
 ## See Also
 
