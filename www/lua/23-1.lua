@@ -37,9 +37,9 @@ if scheme ~= 'https' then
 end
 
 -- workaround on ubuntu 1604 OpenSSL 1.0.1f
-if not pcall(ffi.typeof, 'OpenSSL_version') then
-    return ngx.say('read openssl error.')
-end
+--if not pcall(ffi.typeof, 'OpenSSL_version') then
+--    return ngx.say('read openssl error.')
+--end
 
 local openssl_ver = ffi_str(C.OpenSSL_version(0))
 
