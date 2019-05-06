@@ -36,6 +36,7 @@ HTTPS/SSL/TLS
 * [RFC6066](https://tools.ietf.org/html/rfc6066) - TLS Extension(SNI)
 * [RFC6960](https://tools.ietf.org/html/rfc6960) - OCSP
 * [RFC7748](https://tools.ietf.org/html/rfc7748) - ECC x25519
+* [RFC7918](https://tools.ietf.org/html/rfc7918) - False Start
 * [RFC8439](https://tools.ietf.org/html/rfc8439) - ChaCha-Poly1305
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
 * [RFC8555](https://tools.ietf.org/html/rfc8555) - ACME
