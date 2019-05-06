@@ -36,6 +36,11 @@ if scheme ~= 'https' then
         'https://'..ngx.var.host..ngx.var.request_uri, 301)
 end
 
+-- workaround on ubuntu 1604 OpenSSL 1.0.1f
+if not pcall(ffi.typeof, 'OpenSSL_version') then
+    return ngx.say('read openssl error.')
+end
+
 local openssl_ver = ffi_str(C.OpenSSL_version(0))
 
 ngx.log(ngx.INFO, "hello openssl")
