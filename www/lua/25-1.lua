@@ -11,7 +11,7 @@ if scheme ~= 'https' then
         'https://'..ngx.var.host..ngx.var.request_uri, 301)
 end
 
-local algo_name = ngx.var.arg_algo or 'md5'
+local algo_name = ngx.var.arg_algo or 'sha256'
 
 local ok, algo = pcall(require, 'resty.' .. algo_name)
 
