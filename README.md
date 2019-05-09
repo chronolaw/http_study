@@ -26,7 +26,7 @@ HTTP
 HTTPS/SSL/TLS
 
 * [RFC2818](https://tools.ietf.org/html/rfc2818) - HTTPS
-* [RFC4492](https://tools.ietf.org/html/rfc4492) - ECC Suites for TLS
+* [RFC4492](https://tools.ietf.org/html/rfc4492) - ECC Suites for TLS(old)
 * [RFC5077](https://tools.ietf.org/html/rfc5077) - TLS Session Resumption
 * [RFC5116](https://tools.ietf.org/html/rfc5116) - AES AEAD
 * [RFC5246](https://tools.ietf.org/html/rfc5246) - TLS 1.2
@@ -38,6 +38,7 @@ HTTPS/SSL/TLS
 * [RFC7301](https://tools.ietf.org/html/rfc7301) - ALPN
 * [RFC7748](https://tools.ietf.org/html/rfc7748) - ECC x25519
 * [RFC7918](https://tools.ietf.org/html/rfc7918) - False Start
+* [RFC8422](https://tools.ietf.org/html/rfc8422) - ECC Suites for TLS(new)
 * [RFC8439](https://tools.ietf.org/html/rfc8439) - ChaCha-Poly1305
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
 * [RFC8555](https://tools.ietf.org/html/rfc8555) - ACME
