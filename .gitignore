@@ -43,6 +43,7 @@ luac.out
 *.log
 *.pid
 *.swp
+wireshark/
 cache/
 temp/
 scgi_temp/
