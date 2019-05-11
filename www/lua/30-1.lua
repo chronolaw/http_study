@@ -2,6 +2,8 @@
 
 local ssl = require "ngx.ssl"
 
+ngx.header['metroid'] = 'prime'
+
 ngx.say("scheme: ", ngx.var.scheme)
 
 
