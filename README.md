@@ -37,6 +37,7 @@ HTTPS/SSL/TLS
 * [RFC6797](https://tools.ietf.org/html/rfc6797) - HSTS
 * [RFC6960](https://tools.ietf.org/html/rfc6960) - OCSP
 * [RFC7301](https://tools.ietf.org/html/rfc7301) - ALPN
+* [RFC7525](https://tools.ietf.org/html/rfc7525) - Recommendations for TLS
 * [RFC7748](https://tools.ietf.org/html/rfc7748) - ECC x25519
 * [RFC7918](https://tools.ietf.org/html/rfc7918) - False Start
 * [RFC8032](https://tools.ietf.org/html/rfc8032) - EdDSA
