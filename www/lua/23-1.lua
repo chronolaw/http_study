@@ -52,6 +52,8 @@ ngx.say('hello ', openssl_ver)
 ngx.say('\nprotocol: ', ngx.var.ssl_protocol)
 ngx.say('\nsni name: ', ngx.var.ssl_server_name)
 
+ngx.say('\nclient cert: ', ngx.var.ssl_client_verify)
+ngx.say('\nclient curves: ', ngx.var.ssl_curves)
 ngx.say('\nclient suites: ', ngx.var.ssl_ciphers)
 
 ngx.say('\nserver suite: ', ngx.var.ssl_cipher)
