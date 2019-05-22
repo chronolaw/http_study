@@ -9,7 +9,10 @@ local wb, err = server:new{
 
 if not wb then
     ngx.log(ngx.ERR, "failed to init websocket: ", err)
-    ngx.exit(444)
+
+    ngx.status = 444
+    return ngx.say("should not access by http!")
+    --ngx.exit(444)
 end
 
 local data, typ, bytes, err

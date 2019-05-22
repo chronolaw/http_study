@@ -35,7 +35,7 @@ if typ == "pong" then
     ngx.say("recv pong")
 end
 
-bytes, err = wb:send_text("hello wb")
+bytes, err = wb:send_text("hello websocket")
 if not bytes then
     ngx.say("failed to send: ", err)
     return
