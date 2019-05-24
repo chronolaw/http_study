@@ -38,6 +38,7 @@ HTTPS/SSL/TLS
 * [RFC6066](https://tools.ietf.org/html/rfc6066) - TLS Extension(SNI)
 * [RFC6797](https://tools.ietf.org/html/rfc6797) - HSTS
 * [RFC6960](https://tools.ietf.org/html/rfc6960) - OCSP
+* [RFC6961](https://tools.ietf.org/html/rfc6961) - OCSP Stapling
 * [RFC7301](https://tools.ietf.org/html/rfc7301) - ALPN
 * [RFC7525](https://tools.ietf.org/html/rfc7525) - Recommendations for TLS
 * [RFC7748](https://tools.ietf.org/html/rfc7748) - ECC x25519
