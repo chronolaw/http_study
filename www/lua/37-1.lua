@@ -1,4 +1,4 @@
--- Copyright (C) 2018 by chrono
+-- Copyright (C) 2019 by chrono
 
 local client = require "resty.websocket.client"
 
