@@ -2,6 +2,13 @@
 
 local ssl = require "ngx.ssl"
 
+local scheme = ngx.var.scheme
+if scheme ~= 'https' then
+    --ngx.log(ngx.ERR, scheme)
+    return ngx.redirect(
+        'https://'..ngx.var.host..ngx.var.request_uri, 301)
+end
+
 ngx.header['metroid'] = 'prime'
 
 ngx.say("scheme: ", ngx.var.scheme)
