@@ -7,7 +7,9 @@ local wb, err = client:new{
     max_payload_len = 1024 * 64,
     }
 
-local uri = "ws://127.0.0.1/37-0"
+local scheme = ngx.var.scheme == 'http' and 'ws' or 'wss'
+
+local uri = scheme .. "://127.0.0.1/37-0"
 local ok, err = wb:connect(uri)
 if not ok then
     ngx.say("failed to connect: ", err)
