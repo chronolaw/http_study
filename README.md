@@ -48,6 +48,7 @@ HTTPS/SSL/TLS
 * [RFC8422](https://tools.ietf.org/html/rfc8422) - ECC Suites for TLS(new)
 * [RFC8439](https://tools.ietf.org/html/rfc8439) - ChaCha-Poly1305
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
+* [RFC8470](https://tools.ietf.org/html/rfc8470) - Using Early Data in HTTP
 * [RFC8555](https://tools.ietf.org/html/rfc8555) - ACME
 
 Others
