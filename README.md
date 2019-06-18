@@ -68,6 +68,7 @@ Others
 * [lua-resty-core](https://github.com/openresty/lua-resty-core) - lua-resty-core
 * [OpenSSL](https://www.openssl.org) - OpenSSL
 * [Let's encrypt](https://letsencrypt.org/) - Let's encrypt
+* [ModSecurity](http://modsecurity.org/) - ModSecurity
 
 ## See Also
 
