@@ -7,7 +7,7 @@ local method = ngx.req.get_method()
 if method ~= "GET" and
    method ~= "HEAD" then
 
-   return 405
+   ngx.exit(405)
 end
 
 ngx.header.content_length = #str
