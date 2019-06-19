@@ -7,7 +7,7 @@ local method = ngx.req.get_method()
 if method ~= "POST" and
    method ~= "PUT" then
 
-   return 405
+   ngx.exit(405)
 end
 
 ngx.req.read_body()
@@ -16,7 +16,7 @@ local data = ngx.req.get_body_data()
 
 if not data then
     --ngx.log(ngx.ERR, "method no data", method)
-    return 400
+   ngx.exit(400)
 end
 
 --ngx.log(ngx.ERR, "data len = ", #data)
