@@ -54,6 +54,7 @@ HTTPS/SSL/TLS
 Others
 
 * [RFC2324](https://tools.ietf.org/html/rfc2324) - HTCPCP
+* [RFC4122](https://tools.ietf.org/html/rfc4122) - UUID/GUID
 * [RFC6455](https://tools.ietf.org/html/rfc6455) - WebSocket
 * [RFC7168](https://tools.ietf.org/html/rfc7168) - HTCPCP-TEA
 * [QUIC-Draft](https://quicwg.org/) - QUIC-Draft
