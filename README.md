@@ -49,6 +49,7 @@ HTTPS/SSL/TLS
 * [RFC8439](https://tools.ietf.org/html/rfc8439) - ChaCha-Poly1305
 * [RFC8446](https://tools.ietf.org/html/rfc8446) - TLS 1.3
 * [RFC8470](https://tools.ietf.org/html/rfc8470) - Using Early Data in HTTP
+* [RFC8484](https://tools.ietf.org/html/rfc8484) - DNS over HTTPS
 * [RFC8555](https://tools.ietf.org/html/rfc8555) - ACME
 
 Others
