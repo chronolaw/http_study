@@ -4,14 +4,14 @@
 
 ngx.say('DH demo\n')
 
-local P = 7
-local G = 3
+local P = 17
+local G = 5
 
 ngx.say("P = ", P)
 ngx.say("G = ", G)
 ngx.say("")
 
-local a = 4
+local a = 10
 local b = 5
 
 ngx.say("a = ", a)
@@ -25,8 +25,8 @@ ngx.say("A = ", A)
 ngx.say("B = ", B)
 ngx.say("")
 
-local aa = (B ^ a) % P
-local bb = (A ^ b) % P
+local shared_a = (B ^ a) % P
+local shared_b = (A ^ b) % P
 
-ngx.say("aa = ", aa)
-ngx.say("bb = ", bb)
+ngx.say("shared_a = ", shared_a)
+ngx.say("shared_b = ", shared_b)
