@@ -6,9 +6,7 @@ Pull requests of Python/JavaScript example code are welcome!
 
 ## Requirements
 
-Windows 7 or 10.
-
-But you can also run it on Linux or macOS.
+Windows(7 or 10)/Linux/macOS.
 
 ## Resources
 
