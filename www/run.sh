@@ -1,7 +1,15 @@
 ##!/usr/bin/env bash
 
+# Linux
 openresty_path="/usr/local/openresty"
 openresty="${openresty_path}/bin/openresty"
+
+os=`uname`
+
+# os = Darwin = macOS
+if [ $os != "Linux" ] ; then
+    openresty="/usr/local/bin/openresty"
+fi
 
 # openresty needs ./logs
 if [ ! -d "logs" ]; then
@@ -14,7 +22,7 @@ if [ $# -ne 1 ] ; then
     exit 0
 fi
 
-opts="-p `pwd`"
+opts="-c conf/nginx.conf -p `pwd`"
 
 if [[ $1 != "start" && $1 != "stop" && $1 != "reload" && $1 != "list" ]] ; then
     echo "format : $0 [start|stop|reload]|list"
