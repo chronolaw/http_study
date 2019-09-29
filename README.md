@@ -29,6 +29,7 @@ HTTP
 HTTPS/SSL/TLS
 
 * [RFC2818](https://tools.ietf.org/html/rfc2818) - HTTPS
+* [RFC3526](https://tools.ietf.org/html/rfc3526) - DH Modular Exponential
 * [RFC4492](https://tools.ietf.org/html/rfc4492) - ECC Suites for TLS(old)
 * [RFC5077](https://tools.ietf.org/html/rfc5077) - TLS Session Resumption
 * [RFC5116](https://tools.ietf.org/html/rfc5116) - AES AEAD
