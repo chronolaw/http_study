@@ -1,6 +1,6 @@
 # http_study
 
-[透视HTTP协议](https://time.geekbang.org/column/intro/189) Follow me to study HTTP.
+[《透视HTTP协议》](https://time.geekbang.org/column/intro/189) Follow me to study HTTP.
 
 Pull requests of Python/JavaScript example code are welcome!
 
@@ -83,6 +83,7 @@ Others
 
 ## See Also
 
+* [《C++实战笔记》](https://time.geekbang.org/column/intro/309)
 * [annotated_nginx](https://github.com/chronolaw/annotated_nginx) - 注释nginx，学习研究源码
 * [ngx_ansic_dev](https://github.com/chronolaw/ngx_ansic_dev) - Nginc ANSI C Development
 * [openresty_dev](https://github.com/chronolaw/openresty_dev) - OpenResty/Lua Programming
