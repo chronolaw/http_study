@@ -50,6 +50,13 @@
         content_by_lua_file lua/$1.lua;
     }
 
+    # for cpp study in geektime
+    # curl 127.1/cpp_study
+    location = /cpp_study {
+        default_type text/plain;
+        content_by_lua_file lua/cpp_study.lua;
+    }
+
     location /gc {
         content_by_lua_block {
             ngx.say(string.format("GC: %dKB", collectgarbage("count")))

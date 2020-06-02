@@ -8,9 +8,9 @@ Pull requests of Python/JavaScript example code are welcome!
 
 * Windows : 7 or 10
 * Linux : Ubuntu, Debian, CentOS, and others
-* macOS(OSX) : 10.10 or later
+* macOS(OS X) : 10.10 or later
 
-## Resources
+## Resource
 
 HTTP
 
