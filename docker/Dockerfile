@@ -39,7 +39,7 @@ ARG RESTY_IMAGE="openresty/openresty:bionic"
 FROM ${RESTY_IMAGE}
 
 ARG NGX_CONF="./http_study/www/conf/nginx.conf"
-ARG HOSTS="/etc/hosts"
+#ARG HOSTS="/etc/hosts"
 
 #LABEL version="2020-08"
 #LABEL resty_version="1.17.8.2"
