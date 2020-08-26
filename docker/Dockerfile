@@ -4,7 +4,8 @@
 # docker image build -t chronolaw/http_study .
 
 # docker container run -it chronolaw/http_study bash
-# docker container run --rm -it chronolaw/http_study bash
+# docker container run -it --rm --net=host chronolaw/http_study bash
+# docker container run -it --rm chronolaw/http_study bash
 
 # docker container run -it --add-host=www.chrono.com:127.0.0.1 chronolaw/http_study bash
 # docker container run -it --add-host=www.chrono.com:127.0.0.1 --add-host=www.metroid.net:127.0.0.1 --rm chronolaw/http_study bash
@@ -32,6 +33,9 @@ FROM ${RESTY_IMAGE}
 
 ARG NGX_CONF="./http_study/www/conf/nginx.conf"
 ARG HOSTS="/etc/hosts"
+
+#LABEL version="2020-08"
+#LABEL resty_version="1.17.8.2"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
