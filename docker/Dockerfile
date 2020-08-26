@@ -16,6 +16,7 @@
 
 # docker login
 # docker image push chronolaw/http_study
+# docker image pull chronolaw/http_study
 
 
 # cat ~/http_study/hosts >> /etc/hosts
