@@ -1,6 +1,10 @@
 # Dockerfile
 # chrono@2020-08
 
+# curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+# sudo service docker start
+# sudo usermod -aG docker ${USER}
+
 # docker image build -t chronolaw/http_study .
 
 # docker container run -it chronolaw/http_study bash
@@ -9,6 +13,9 @@
 
 # docker container run -it --add-host=www.chrono.com:127.0.0.1 chronolaw/http_study bash
 # docker container run -it --add-host=www.chrono.com:127.0.0.1 --add-host=www.metroid.net:127.0.0.1 --rm chronolaw/http_study bash
+
+# docker login
+# docker image push chronolaw/http_study
 
 
 # cat ~/http_study/hosts >> /etc/hosts
@@ -50,3 +57,5 @@ EXPOSE 80 8080
 
 # https/http2 service
 EXPOSE 440 441 442 443 8443
+
+#CMD ["/bin/bash", "-c", "cat /root/http_study/hosts >> /etc/hosts;cd /root/http_study/www;./run.sh start"]

@@ -1,4 +1,4 @@
-##!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # Linux
 openresty_path="/usr/local/openresty"
