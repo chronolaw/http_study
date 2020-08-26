@@ -1,17 +1,48 @@
 # Dockerfile
-# chrono @ 2020-08
+# chrono@2020-08
+
+# docker image build -t chronolaw/http_study .
+
+# docker container run -it chronolaw/http_study bash
+# docker container run --rm -it chronolaw/http_study bash
+
+# docker container run -it --add-host=www.chrono.com:127.0.0.1 chronolaw/http_study bash
+# docker container run -it --add-host=www.chrono.com:127.0.0.1 --add-host=www.metroid.net:127.0.0.1 --rm chronolaw/http_study bash
+
+
+# cat ~/http_study/hosts >> /etc/hosts
+# cd ~/http_study/www
+# ./run.sh start
+
+# curl 127.0.0.1 -v
+# curl http://www.chrono.com/07-1 -v
+
+# https
+# curl https://www.chrono.com/23-1 -vk --tlsv1.2
+# curl https://www.chrono.com/23-1 -vk
+
+# http/2
+# curl https://www.chrono.com/30-1 -vk
+# curl https://www.metroid.net:8443/11-1 -vk
+# curl https://www.metroid.net:8443/30-1 -vk
 
 ARG RESTY_IMAGE="openresty/openresty:bionic"
 
 FROM ${RESTY_IMAGE}
 
+ARG NGX_CONF="./http_study/www/conf/nginx.conf"
+ARG HOSTS="/etc/hosts"
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         sudo vim git tcpdump \
     && cd \
-    && git clone https://github.com/chronolaw/http_study
+    && git clone https://github.com/chronolaw/http_study \
+    && sed -i 's/^#user root/user root/g' ${NGX_CONF}
 
-EXPOSE 80
-EXPOSE 8080
-EXPOSE 443
-EXPOSE 8443
+
+# http service
+EXPOSE 80 8080
+
+# https/http2 service
+EXPOSE 440 441 442 443 8443
