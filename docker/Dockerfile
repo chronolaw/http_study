@@ -49,7 +49,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
         sudo vim git tcpdump \
     && cd \
     && git clone https://github.com/chronolaw/http_study \
-    && sed -i 's/^#user root/user root/g' ${NGX_CONF}
+    && sed -i 's/^#user root/user root/g' ${NGX_CONF} \
+    && DEBIAN_FRONTEND=noninteractive apt-get autoremove -y
 
 
 # http service
@@ -58,4 +59,5 @@ EXPOSE 80 8080
 # https/http2 service
 EXPOSE 440 441 442 443 8443
 
+CMD ["/bin/bash"]
 #CMD ["/bin/bash", "-c", "cat /root/http_study/hosts >> /etc/hosts;cd /root/http_study/www;./run.sh start"]
