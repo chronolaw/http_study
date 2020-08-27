@@ -37,6 +37,12 @@
 # curl https://www.metroid.net:8443/11-1 -vk
 # curl https://www.metroid.net:8443/30-1 -vk
 
+# tcpdump tcp port 80 -i lo -w /tmp/a.pcap
+# curl http://www.chrono.com/07-1 -v
+# tcpdump tcp port 443 -i lo -w /tmp/a.pcap
+# SSLKEYLOGFILE=/tmp/a.log curl https://www.chrono.com/11-1 -vk
+# docker cp container_id:/tmp/a.pcap .
+
 ARG RESTY_IMAGE="openresty/openresty:bionic"
 
 FROM ${RESTY_IMAGE}
