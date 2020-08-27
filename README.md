@@ -16,7 +16,7 @@ You can also use this in docker, it bases on ubuntu 18.04/openresty 1.17.8.2:
 
 ```docker
 docker pull chronolaw/http_study
-docker container run -it --rm chronolaw/http_study bash
+docker run -it --rm chronolaw/http_study bash
 
 cat ~/http_study/hosts >> /etc/hosts
 cd ~/http_study/www

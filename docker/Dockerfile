@@ -7,14 +7,14 @@
 
 # docker image build -t chronolaw/http_study .
 
-# docker container run -it chronolaw/http_study bash
-# docker container run -it --rm --net=host chronolaw/http_study bash
-# docker container run -it --rm chronolaw/http_study bash
+# docker run -it chronolaw/http_study bash
+# docker run -it --rm --net=host chronolaw/http_study bash
+# docker run -it --rm chronolaw/http_study bash
 
-# docker container run -it --add-host=www.chrono.com:127.0.0.1 chronolaw/http_study bash
-# docker container run -it --add-host=www.chrono.com:127.0.0.1 --add-host=www.metroid.net:127.0.0.1 --rm chronolaw/http_study bash
+# docker run -it --add-host=www.chrono.com:127.0.0.1 chronolaw/http_study bash
+# docker run -it --add-host=www.chrono.com:127.0.0.1 --add-host=www.metroid.net:127.0.0.1 --rm chronolaw/http_study bash
 
-# docker container exec -it container_id bash
+# docker exec -it container_id bash
 
 # docker login
 # docker image push chronolaw/http_study
