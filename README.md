@@ -10,6 +10,19 @@ Pull requests of Python/JavaScript example code are welcome!
 * Linux : Ubuntu, Debian, CentOS, and others
 * macOS(OS X) : 10.10 or later
 
+## Docker
+
+You can also use this in docker, it bases on ubuntu 18.04/openresty 1.17.8.2:
+
+```docker
+docker pull chronolaw/http_study
+docker container run -it --rm chronolaw/http_study bash
+
+cat ~/http_study/hosts >> /etc/hosts
+cd ~/http_study/www
+./run.sh start
+```
+
 ## Resource
 
 HTTP
