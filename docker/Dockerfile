@@ -55,7 +55,7 @@ ARG NGX_CONF="./http_study/www/conf/nginx.conf"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        sudo vim git tcpdump \
+        sudo vim git tcpdump telnet\
     && cd \
     && git clone https://github.com/chronolaw/http_study \
     && sed -i 's/^#user root/user root/g' ${NGX_CONF} \
