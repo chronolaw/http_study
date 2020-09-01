@@ -25,6 +25,9 @@
 # cd ~/http_study/www
 # ./run.sh start
 
+# telnet 127.0.0.1 80
+# telnet www.chrono.com 80
+
 # curl 127.0.0.1 -v
 # curl http://www.chrono.com/07-1 -v
 
