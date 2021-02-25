@@ -21,8 +21,11 @@ services:
     #  - 80:80
     #  - 8080:8080
 
+    working_dir: /root/http_study/www
+
     #command: /bin/bash
-    command : '/bin/bash -c "cd /root/http_study/www && ./run.sh start && /bin/bash"'
+    #command : '/bin/bash -c "cd /root/http_study/www && ./run.sh start && /bin/bash"'
+    command : /bin/bash -c "./run.sh start && /bin/bash"
 
     extra_hosts:
       - "www.chrono.com:127.0.0.1"
