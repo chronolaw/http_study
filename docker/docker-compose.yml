@@ -1,0 +1,24 @@
+# chrono 2021-02
+#
+# docker-compose run http_study
+
+version: "3"
+
+services:
+
+  http_study:
+
+    image: chronolaw/http_study
+
+    container_name: http_study
+
+    ports:
+      - 80:80
+      - 8080:8080
+
+    command: /bin/bash
+
+    extra_hosts:
+      - "www.chrono.com:127.0.0.1"
+      - "www.metroid.net:127.0.0.1"
+      - "origin.io:127.0.0.1"
