@@ -63,7 +63,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         sudo vim git tcpdump telnet\
     && cd \
-    && git clone https://github.com/chronolaw/http_study \
+    && git clone https://github.com/chronolaw/http_study --depth=1 \
     && sed -i 's/^#user root/user root/g' ${NGX_CONF} \
     && DEBIAN_FRONTEND=noninteractive apt-get autoremove -y
 
