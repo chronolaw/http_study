@@ -17,9 +17,9 @@ services:
 
     container_name: http_study
 
-    ports:
-      - 80:80
-      - 8080:8080
+    #ports:
+    #  - 80:80
+    #  - 8080:8080
 
     #command: /bin/bash
     command : '/bin/bash -c "cd /root/http_study/www && ./run.sh start && /bin/bash"'
