@@ -1,9 +1,11 @@
 # chrono 2021-02
 #
 # docker-compose run --rm http_study
+# TAG=:alpine docker-compose run --rm http_study
 #
 # curl https://www.chrono.com/23-1 -vk
 # curl https://www.chrono.com/30-1 -k --tlsv1.2
+# curl https://www.chrono.com/30-1 -k --tls-max 1.2
 # curl https://www.metroid.net:8443/30-1 -k
 
 version: "3"   # 1.13+
@@ -16,6 +18,7 @@ services:
     image: chronolaw/http_study
     #image: chronolaw/http_study:alpine
     #image: chronolaw/http_study:bionic
+    #image: "chronolaw/http_study${TAG}"
 
     container_name: http_study
 
