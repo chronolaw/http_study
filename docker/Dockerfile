@@ -56,6 +56,7 @@ ARG RESTY_IMAGE="openresty/openresty:1.17.8.2-5-alpine"
 FROM ${RESTY_IMAGE}
 
 ARG NGX_CONF="./http_study/www/conf/nginx.conf"
+ARG BASHRC="/root/.bashrc"
 #ARG HOSTS="/etc/hosts"
 
 #LABEL version="2020-08"
@@ -70,7 +71,8 @@ RUN apk add --no-cache \
         sudo bash vim curl tcpdump busybox-extras git\
     && cd \
     && git clone https://github.com/chronolaw/http_study --depth=1 \
-    && sed -i 's/^#user root/user root/g' ${NGX_CONF}
+    && sed -i 's/^#user root/user root/g' ${NGX_CONF} \
+    && echo -e "color_prompt=yes\nalias ls='ls --color=auto'" > ${BASHRC}
 
 
 # http service
