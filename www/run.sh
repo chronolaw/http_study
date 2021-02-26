@@ -25,7 +25,7 @@ fi
 opts="-c conf/nginx.conf -p `pwd`"
 
 if [[ $1 != "start" && $1 != "stop" && $1 != "reload" && $1 != "list" ]] ; then
-    echo "format : $0 [start|stop|reload]|list"
+    echo "format : $0 [start|stop|reload|list]"
     exit 1
 fi
 
