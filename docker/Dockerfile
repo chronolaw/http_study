@@ -72,7 +72,7 @@ RUN apk add --no-cache \
     && cd \
     && git clone https://github.com/chronolaw/http_study --depth=1 \
     && sed -i 's/^#user root/user root/g' ${NGX_CONF} \
-    && echo -e "color_prompt=yes\nalias ls='ls --color=auto'" > ${BASHRC}
+    && echo -e "color_prompt=yes\nalias ls='ls --color=auto'\nll='ls -l'" > ${BASHRC}
 
 
 # http service
