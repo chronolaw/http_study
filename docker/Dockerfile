@@ -49,7 +49,8 @@
 # SSLKEYLOGFILE=/tmp/a.log curl https://www.chrono.com/11-1 -vk
 # docker cp container_id:/tmp/a.pcap .
 
-ARG RESTY_IMAGE="openresty/openresty:bionic"
+#ARG RESTY_IMAGE="openresty/openresty:bionic"
+ARG RESTY_IMAGE="openresty/openresty:1.17.8.2-5-bionic"
 
 FROM ${RESTY_IMAGE}
 
