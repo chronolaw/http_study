@@ -50,7 +50,8 @@
 # docker cp container_id:/tmp/a.pcap .
 
 #ARG RESTY_IMAGE="openresty/openresty:bionic"
-ARG RESTY_IMAGE="openresty/openresty:1.17.8.2-5-bionic"
+#ARG RESTY_IMAGE="openresty/openresty:1.17.8.2-5-bionic"
+ARG RESTY_IMAGE="openresty/openresty:1.17.8.2-5-alpine"
 
 FROM ${RESTY_IMAGE}
 
@@ -60,13 +61,16 @@ ARG NGX_CONF="./http_study/www/conf/nginx.conf"
 #LABEL version="2020-08"
 #LABEL resty_version="1.17.8.2"
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        sudo vim git tcpdump telnet\
+#RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+#    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+#        sudo vim git tcpdump telnet\
+#    && DEBIAN_FRONTEND=noninteractive apt-get autoremove -y
+
+RUN apk add --no-cache \
+        sudo bash vim curl tcpdump busybox-extras git\
     && cd \
     && git clone https://github.com/chronolaw/http_study --depth=1 \
-    && sed -i 's/^#user root/user root/g' ${NGX_CONF} \
-    && DEBIAN_FRONTEND=noninteractive apt-get autoremove -y
+    && sed -i 's/^#user root/user root/g' ${NGX_CONF}
 
 
 # http service
