@@ -14,6 +14,8 @@ services:
   http_study:
 
     image: chronolaw/http_study
+    #image: chronolaw/http_study:20210226-alpine
+    #image: chronolaw/http_study:20210226-bionic
 
     container_name: http_study
 
