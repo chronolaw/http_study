@@ -44,7 +44,7 @@ HTTP
 * [RFC7541](https://tools.ietf.org/html/rfc7541) - HPACK in HTTP/2
 * [RFC7838](https://tools.ietf.org/html/rfc7838) - Alt-Svc
 * [RFC9000](https://tools.ietf.org/html/rfc9000) - QUIC
-* [RFC????](https://tools.ietf.org/html/draft-ietf-quic-http) - HTTP/3(Draft)
+* [RFC9114](https://tools.ietf.org/html/rfc9114) - HTTP/3
 
 HTTPS/SSL/TLS
 
